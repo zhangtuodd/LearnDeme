@@ -1,1 +1,1 @@
-include ':app', ':enum'
+include ':app'

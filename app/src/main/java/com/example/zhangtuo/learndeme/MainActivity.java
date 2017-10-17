@@ -1,12 +1,16 @@
 package com.example.zhangtuo.learndeme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
+import ui.customview.CustomViewActivity;
+import ui.immerse.ImmersedStatusActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +33,23 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
 
-        agent();
+//        agent();
+
+        //沉浸式状态栏
+        findViewById(R.id.immersed).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImmersedStatusActivity.class));
+            }
+        });
+
+        //自定义仪表盘
+        findViewById(R.id.custom_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CustomViewActivity.class));
+            }
+        });
 
     }
 
@@ -39,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
      * <p>
      * 加深理解：被代理类 Star 只需要完成自己的功能，不用因为业务逻辑而频繁修改代码
      * ，取而代之的是用 Proxy 来做中间人，由它来代替 Star 完成一些业务操作。
-     *
      */
     private void agent() {
         //静态代理,
