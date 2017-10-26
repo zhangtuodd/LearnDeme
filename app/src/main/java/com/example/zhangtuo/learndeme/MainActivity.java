@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //重启应用
-      /*  findViewById(R.id.restart).setOnClickListener(new View.OnClickListener() {
+      /*  findViewById(R.id.restart).setOnClickListener(new View.CustomClickListener() {
             @Override
             public void onClick(View v) {
                 RestartApp restartApp = new RestartApp();

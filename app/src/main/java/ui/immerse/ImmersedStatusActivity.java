@@ -16,6 +16,7 @@ import com.example.zhangtuo.learndeme.R;
  */
 
 public class ImmersedStatusActivity extends Activity {
+    private CompatToolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +25,13 @@ public class ImmersedStatusActivity extends Activity {
         setViewRefreTOStatus();
 
         setContentView(R.layout.immerseed_view);
+        toolbar = (CompatToolbar) findViewById(R.id.toolbar);
+        toolbar.setCustomClickListener(new CustomClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 

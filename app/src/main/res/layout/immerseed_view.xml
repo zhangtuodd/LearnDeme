@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ui.immerse.CompatToolbar
-        android:background="@android:color/holo_red_light"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:immersed_bg_color="@color/colorAccent"
+        app:title_block_bg_color="@android:color/darker_gray"
+        app:title_color="@android:color/black"
+        app:title_image="@mipmap/back"
+        app:title_name="沉浸式"
+        app:title_size="5dp" />
 
 </LinearLayout>

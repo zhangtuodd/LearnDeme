@@ -4,11 +4,17 @@
     <declare-styleable name="CircleBarView">
         <attr name="circle_color" format="color"></attr>
         <attr name="circle_bg_color" format="color"></attr>
-
         <attr name="circle_stoken_width" format="dimension"></attr>
-
         <attr name="start_angle" format="float"></attr>
         <attr name="sweep_angle" format="float"></attr>
+    </declare-styleable>
 
+    <declare-styleable name="CompatToolbar">
+        <attr name="immersed_bg_color" format="color" />
+        <attr name="title_size" format="dimension" />
+        <attr name="title_color" format="color" />
+        <attr name="title_name" format="string" />
+        <attr name="title_block_bg_color" format="color" />
+        <attr name="title_image" format="reference" />
     </declare-styleable>
 </resources>
