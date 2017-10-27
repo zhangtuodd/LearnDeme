@@ -22,6 +22,8 @@
 
         <activity android:name="ui.customview.CustomViewActivity" />
 
+        <activity android:name="ui.audiochartview.AudioChartActivity" />
+
     </application>
 
 </manifest>

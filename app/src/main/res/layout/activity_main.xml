@@ -5,6 +5,12 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+    <TextView
+        android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
@@ -26,4 +32,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/custom_view"/>
 
+    <Button
+        android:text="audio_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/audio_view"/>
 </LinearLayout>

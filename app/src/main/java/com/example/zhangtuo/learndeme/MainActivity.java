@@ -1,14 +1,18 @@
 package com.example.zhangtuo.learndeme;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
+import ui.audiochartview.AudioChartActivity;
 import ui.customview.CustomViewActivity;
 import ui.immerse.ImmersedStatusActivity;
 
@@ -47,7 +51,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.custom_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CustomViewActivity.class));
+                startActivity(new Intent(MainActivity.this, CustomViewActivity.class));
+            }
+        });
+
+        //自定义音频跳动条
+        findViewById(R.id.audio_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AudioChartActivity.class));
             }
         });
 
