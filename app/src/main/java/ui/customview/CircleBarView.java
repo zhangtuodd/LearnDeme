@@ -22,6 +22,7 @@ import com.example.zhangtuo.learndeme.R;
  * 感谢好文：
  * https://mp.weixin.qq.com/s?__biz=MzIxOTU1MDg5Ng==&mid=2247484222&idx=1&sn=95f3793ed034027363773acfbf15fd1e&chksm=97d8c6e1a0af4ff797babbe78ee859f897cf4fec688d28e97adfef9ebd74bcb14a19cd12252e#rd
  * <p>
+ *     自定义一个带有动画特效的根据数值来确定圆弧角度的进度条（100为100%,对应圆弧是360度）
  * 一步步完善：
  * 简单画个规定大小矩形，里面包括一个圆环
  * 给圆环添加一个动画
@@ -39,7 +40,6 @@ public class CircleBarView extends View {
 
     private CircleBarAnim circleBarAnim;
 
-    private float sweepAngle = 360;//圆弧经过的角度
     private float startAngle = 0;//开始绘制角度
     private float actualAngle;
 
@@ -70,7 +70,6 @@ public class CircleBarView extends View {
         int circleColor = typedArray.getColor(R.styleable.CircleBarView_circle_color, Color.GREEN);
         barWidth = typedArray.getDimension(R.styleable.CircleBarView_circle_stoken_width, px2dip(context, 10));
         startAngle = typedArray.getFloat(R.styleable.CircleBarView_start_angle, 0);
-        sweepAngle = typedArray.getFloat(R.styleable.CircleBarView_sweep_angle, 360);
 
         typedArray.recycle();//记着回收
 
@@ -106,6 +105,7 @@ public class CircleBarView extends View {
         this.textView = textView;
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -138,8 +138,12 @@ public class CircleBarView extends View {
 
         if (specMode == View.MeasureSpec.EXACTLY) {
             result = specSize;
+            Log.i("tag", "EXACTLY--------------------");
         } else if (specMode == View.MeasureSpec.AT_MOST) {
             result = Math.min(result, specSize);
+            Log.i("tag", "AT_MOST--------------------");
+        } else if (specMode == MeasureSpec.UNSPECIFIED) {
+            Log.i("tag", "UNSPECIFIED----------------");
         }
         return result;
     }
@@ -156,21 +160,30 @@ public class CircleBarView extends View {
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             super.applyTransformation(interpolatedTime, t);
 
-            actualAngle = interpolatedTime * sweepAngle * progressNum / maxNum;//这里计算进度条的比例
-            Log.i("tag", "interpolatedTime--------------:" + interpolatedTime);
+            actualAngle = interpolatedTime * progressNum * maxNum / 100;//这里计算进度条的比例
+//            Log.i("tag", "interpolatedTime--------------:" + interpolatedTime);
             if (textView != null) {
-                textView.setText(decimalFormat.format(interpolatedTime * progressNum / maxNum * 100) + "%");
+                textView.setText(decimalFormat.format(interpolatedTime * progressNum) + "%");
             }
             postInvalidate();
         }
     }
 
     private float progressNum;
-    private float maxNum = 100;//100为满，随便设置
+    private float maxNum = 360;//100为满，随便设置
 
-    //写个方法给外部调用，用来设置动画时间
+
+    /**
+     *
+     * @param progressNum 以100记，50--相当于画半圆
+     * @param time 动画执行时间
+     */
     public void setProgressNum(float progressNum, int time) {
         this.progressNum = progressNum;
+        if (this.progressNum > 100) {
+            this.progressNum = 100;
+        }
+
         circleBarAnim.setDuration(time);
         startAnimation(circleBarAnim);
     }

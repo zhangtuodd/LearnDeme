@@ -4,14 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/background_dark"
-        android:textSize="25dp" />
-
     <ui.customview.CircleBarView
         android:id="@+id/circle_bar_view"
         android:layout_width="match_parent"
@@ -20,5 +12,5 @@
         app:circle_color="@android:color/holo_green_dark"
         app:circle_stoken_width="20dp"
         app:start_angle="90"
-        app:sweep_angle="360" />
+        />
 </RelativeLayout>

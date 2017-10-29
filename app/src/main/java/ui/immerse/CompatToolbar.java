@@ -19,6 +19,8 @@ import com.example.zhangtuo.learndeme.R;
 
 /**
  * Created by zhangtuo on 2017/10/13.
+ *
+ * 自定义带有沉浸式状态栏的toolbar
  */
 
 public class CompatToolbar extends Toolbar {

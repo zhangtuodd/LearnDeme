@@ -1,4 +1,4 @@
-package com.example.zhangtuo.learndeme;
+package thread;
 
 import android.util.Log;
 
