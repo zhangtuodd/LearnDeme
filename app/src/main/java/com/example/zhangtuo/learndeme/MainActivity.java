@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import proxy.IStarBehavior;
@@ -15,14 +19,29 @@ import proxy.Star;
 import ui.audiochartview.AudioChartActivity;
 import ui.customview.CustomViewActivity;
 import ui.immerse.ImmersedStatusActivity;
+import ui.popupwindow.DeletePupView;
+import utils.SizeUtils;
 
 public class MainActivity extends AppCompatActivity {
+
+    DeletePupView pupView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pupView = new DeletePupView(MainActivity.this, new DeletePupView.ClickListener() {
+            @Override
+            public void deleteListener() {
+                Log.i("tag", "delete----------------");
+            }
+
+            @Override
+            public void changeListener() {
+                Log.i("tag", "change----------------");
+            }
+        });
         //线程中断
 //        InterruptThread.test();
 
@@ -63,8 +82,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //公共popupwindow
+        findViewById(R.id.pop).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pupView != null) {
+                    pupView.showAsDropDown(v, SizeUtils.dip2px(MainActivity.this, -15), 0, Gravity.RIGHT);
+                }
+            }
+        });
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (pupView != null && pupView.isShowing()) {
+            pupView.dismiss();
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
 
     /**
      * 主体只负责处理自己的事如演电影。代理负责处理一些前提条件如片酬，满足则通知主体，因此代理必须持有主体

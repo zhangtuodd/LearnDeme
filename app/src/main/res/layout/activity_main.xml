@@ -9,32 +9,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
     <TextView
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
-    <Button
-        android:text="restart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/restart"/>
 
     <Button
-        android:text="immersed"
+        android:id="@+id/restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/immersed"/>
+        android:text="restart" />
 
     <Button
-        android:text="custom_view"
+        android:id="@+id/immersed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/custom_view"/>
+        android:text="immersed" />
 
     <Button
-        android:text="audio_view"
+        android:id="@+id/custom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/audio_view"/>
+        android:text="custom_view" />
+
+    <Button
+        android:id="@+id/audio_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="audio_view" />
+
+    <Button
+        android:id="@+id/pop"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:text="popupwindow" />
 </LinearLayout>
