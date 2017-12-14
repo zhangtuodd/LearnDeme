@@ -43,7 +43,14 @@
     <Button
         android:id="@+id/pop"
         android:layout_width="match_parent"
-        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
         android:text="popupwindow" />
+
+    <Button
+        android:id="@+id/jump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:text="jump-bilibili" />
 </LinearLayout>

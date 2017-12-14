@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -22,6 +24,8 @@ import ui.immerse.ImmersedStatusActivity;
 import ui.popupwindow.DeletePupView;
 import utils.SizeUtils;
 
+import static com.example.base.config.Router.BILIBILI_SPLASH;
+
 public class MainActivity extends AppCompatActivity {
 
     DeletePupView pupView;
@@ -30,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ARouter.getInstance().inject(this);
+        findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(BILIBILI_SPLASH).navigation();
+//                finish();
+            }
+        });
 
         pupView = new DeletePupView(MainActivity.this, new DeletePupView.ClickListener() {
             @Override

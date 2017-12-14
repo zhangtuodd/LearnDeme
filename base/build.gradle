@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [moduleName: project.getName()]
+//            }
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+//    compile 'com.alibaba:arouter-api:1.2.4'
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
+    compile 'com.zt.maven.widget:refreshview:1.0.2'
+
+}
