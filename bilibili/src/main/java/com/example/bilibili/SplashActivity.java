@@ -1,6 +1,7 @@
 package com.example.bilibili;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -10,10 +11,10 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
+//import butterknife.OnClick;
+//import butterknife.Unbinder;
 
 import static com.example.base.config.Router.BILIBILI_SPLASH;
 
@@ -23,10 +24,11 @@ import static com.example.base.config.Router.BILIBILI_SPLASH;
 @Route(path = BILIBILI_SPLASH)
 public class SplashActivity extends Activity {
 
-    Unbinder unbinder;
-    @BindView(R2.id.splash_default_iv)
+
+//    Unbinder unbinder;
+//    @BindView(R2.id.splash_default_iv)
     ImageView imageView;
-    @OnClick(R2.id.splash_default_iv)
+//    @OnClick(R2.id.splash_default_iv)
     void click(View view){
         Toast.makeText(this,"butterknife生效",Toast.LENGTH_SHORT).show();
     }
@@ -34,13 +36,19 @@ public class SplashActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        unbinder = ButterKnife.bind(this);
+        findViewById(R.id.splash_default_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SplashActivity.this,BaiduMapActivity.class));
+            }
+        });
+//        unbinder = ButterKnife.bind(this);
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
+//        unbinder.unbind();
     }
 }

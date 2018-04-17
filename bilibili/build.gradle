@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 26
@@ -15,6 +15,11 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
+            }
+        }
+        sourceSets {
+            main {
+                jniLibs.srcDirs 'libs'
             }
         }
     }
@@ -34,8 +39,8 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     compile 'com.alibaba:arouter-api:1.2.4'
 
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+//    compile 'com.jakewharton:butterknife:8.5.1'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
 
 }

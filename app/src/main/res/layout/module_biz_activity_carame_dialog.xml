@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ffffff"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ffffff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/module_biz_activity_dialog_camera"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/module_biz_activity_id_camera"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="拍照"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#f3f3f3" />
+
+            <TextView
+                android:id="@+id/module_biz_activity_id_select"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="从相册选择"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/module_biz_activity_id_camera_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/module_biz_activity_dialog_camera"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,163 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/module_biz_activity_map_search_all_head_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:id="@+id/module_biz_activity_map_search_head_view_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="取消"
+                android:textColor="#33394c"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/chat_publish_complete_title"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="位置"
+                android:textColor="#33394c"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/module_biz_activity_map_search_head_select"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:text="选择"
+                android:textColor="#527efe"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:id="@+id/module_biz_activity_map_search_one_ll"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/module_biz_activity_map_search_head_view_cancel"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/module_biz_base_fragment_search_bg"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@mipmap/module_biz_base_ic_search" />
+
+                <TextView
+                    android:id="@+id/module_biz_activity_map_search_one_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="搜索地点"
+                    android:textColorHint="#a9abb2"
+                    android:textSize="13dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/module_biz_activity_map_search_map_view"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:clickable="true" />
+
+        <ListView
+            android:id="@+id/module_biz_activity_map_search_below_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/module_biz_activity_map_search_two_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b3434343"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/module_biz_activity_map_search_top_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:background="#ffffff"></ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/module_biz_activity_map_search_two_et"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/module_biz_base_fragment_search_bg"
+                android:drawableLeft="@mipmap/module_biz_base_ic_search"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:hint="搜索地点"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="14dp"
+                android:singleLine="true"
+                android:textColorHint="#a9abb2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/module_biz_activity_map_search_two_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:text="取消"
+                android:textColor="#527efe"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

@@ -2,6 +2,9 @@ package com.example.zhangtuo.learndeme;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -11,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
@@ -23,10 +27,11 @@ import ui.customview.CustomViewActivity;
 import ui.immerse.ImmersedStatusActivity;
 import ui.popupwindow.DeletePupView;
 import utils.SizeUtils;
+import utils.ThreadUtils;
 
 import static com.example.base.config.Router.BILIBILI_SPLASH;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     DeletePupView pupView;
 
@@ -34,16 +39,88 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ARouter.getInstance().inject(this);
+        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
+            }
+        });
+        findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(BILIBILI_SPLASH).navigation();
+//                finish();
+//                maoPao();
+                xuanZe();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*      ARouter.getInstance().inject(this);
         SingleInstance instance = SingleInstance.getInstance();
+//        startActivity(new Intent(this, LifeCyclerActivity.class));
 
         findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build(BILIBILI_SPLASH).navigation();
 //                finish();
+//                maoPao();
+                xuanZe();
             }
         });
+
+        final Handler handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                Toast.makeText(MainActivity.this,"return",Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        //关于回调
+        showProgress();
+        ThreadUtils threadUtils = new ThreadUtils();
+        threadUtils.setThreadListener(new ThreadUtils.ThreadListener() {
+            @Override
+            public void response() {
+                SystemClock.sleep(2000);
+                hideProgress();
+            }
+        });
+        threadUtils.build(ThreadUtils.Type.CACHED);
+
 
         pupView = new DeletePupView(MainActivity.this, new DeletePupView.ClickListener() {
             @Override
@@ -61,13 +138,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //重启应用
-      /*  findViewById(R.id.restart).setOnClickListener(new View.CustomClickListener() {
+      *//*  findViewById(R.id.restart).setOnClickListener(new View.CustomClickListener() {
             @Override
             public void onClick(View v) {
                 RestartApp restartApp = new RestartApp();
                 restartApp.restart(MainActivity.this);
             }
-        });*/
+        });*//*
 
 
 //        agent();
@@ -104,7 +181,42 @@ public class MainActivity extends AppCompatActivity {
                     pupView.showAsDropDown(v, SizeUtils.dip2px(MainActivity.this, -15), 0, Gravity.RIGHT);
                 }
             }
-        });
+        });*/
+    }
+
+    private void xuanZe() {
+        int[] a = {3, 2, 5, 12, 65, 34, 8, 10, 23};
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = i + 1; j < a.length - 1; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
+            Log.i("tag", "a[" + i + "]------" + a[i]);
+        }
+    }
+
+    /**
+     * 冒泡排序
+     */
+    private void maoPao() {
+        int[] a = {3, 2, 5, 12, 65, 34, 8, 10, 23};
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = 0; j < a.length - 1; j++) {
+                if (a[j] < a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
+            Log.i("tag", "a[" + i + "]------" + a[i]);
+        }
     }
 
     @Override

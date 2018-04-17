@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zhangtuo.learndeme">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:name="com.example.zhangtuo.learndeme.App"
         android:allowBackup="true"
@@ -17,12 +21,28 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.example.zhangtuo.learndeme.LifeCyclerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
 
         <activity android:name="ui.immerse.ImmersedStatusActivity" />
 
         <activity android:name="ui.customview.CustomViewActivity" />
 
         <activity android:name="ui.audiochartview.AudioChartActivity" />
+
+        <activity android:name=".PermissionActivity" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+
+        <!-- AK鉴权 -->
+        <!-- meta-data需要写在application中 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="e3vGBXwHHG1GRSOZGhDKCaqWVNZiy1Wy" />
 
     </application>
 
