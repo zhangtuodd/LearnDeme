@@ -33,6 +33,10 @@
 
         <activity android:name=".PermissionActivity" />
 
+        <activity android:name="ui.PaintViewActivity" />
+
+        <activity android:name="ui.ScaleRulerActivity" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
