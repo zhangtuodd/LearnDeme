@@ -33,6 +33,7 @@ public class FlowLayout extends ViewGroup {
     int parentHeight;//父view的高度
 
     int realWidth;//实际测量时的精确宽度
+    int margin;
 
     public FlowLayout(Context context) {
         this(context, null);
@@ -47,9 +48,11 @@ public class FlowLayout extends ViewGroup {
         this.context = context;
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         //真正一屏显示的宽度（除去两边的padding）
-        screenWidth = wm.getDefaultDisplay().getWidth();
-        perWidth = screenWidth / 4;
+        screenWidth = wm.getDefaultDisplay().getWidth() - dp2px(context, 10);
+        perWidth = (screenWidth - dp2px(context, 50)) / 4;
         perHeight = dp2px(context, 30);
+        margin = dp2px(context, 5);
+        this.setBackgroundColor(getResources().getColor(R.color.bangumi_index_yellow_bg));
     }
 
     @Override
@@ -62,18 +65,18 @@ public class FlowLayout extends ViewGroup {
         int childCount = getChildCount();
         if (childCount > 0) {
             //如果有child，默认父view高度为一块
-            parentHeight = perHeight;
+            parentHeight = perHeight + 2 * margin;
         }
         for (int i = 0; i < childCount; i++) {
             TextView child = (TextView) getChildAt(i);
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
-            if (yetWidth + child.getMeasuredWidth() > screenWidth) {
+            if (yetWidth + 2 * margin + child.getMeasuredWidth() > screenWidth) {
                 //另起下一行，已经占用清零
                 yetWidth = 0;
                 //高在原来基础上在加一块
-                parentHeight = parentHeight + perHeight;
+                parentHeight = parentHeight + perHeight + 2 * margin;
             } else {
-                yetWidth = yetWidth + perWidth;
+                yetWidth = yetWidth + perWidth + 2 * margin;
             }
         }
         setMeasuredDimension(
@@ -130,7 +133,7 @@ public class FlowLayout extends ViewGroup {
             textView.setBackgroundResource(R.drawable.flow_layout_bg);
             textView.setGravity(Gravity.CENTER);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(perWidth, perHeight);
-            layoutParams.setMargins(5, 5, 5, 5);
+            layoutParams.setMargins(margin, margin, margin, margin);
             textView.setLayoutParams(layoutParams);
             this.addView(textView);
         }
