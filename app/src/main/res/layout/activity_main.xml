@@ -115,6 +115,11 @@
             android:layout_gravity="bottom" />
 
     </FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ceshi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
 
 
 </LinearLayout>

@@ -28,6 +28,7 @@ public class ScaleRulerView extends View {
     Paint bgPaint;
     Paint slidePaint;
     Paint textPaint;
+    Paint mBitPaint;
     int baseLineY;
     float screenWidth;
     float perWidth;//分成十份，每份宽度
@@ -39,6 +40,7 @@ public class ScaleRulerView extends View {
     float startPosition;//开始位置
     float remainWidth;
     Context context;
+    float endPosition;
 
     public ScaleRulerView(Context context) {
         this(context, null);
@@ -56,6 +58,7 @@ public class ScaleRulerView extends View {
     private void init(Context context, AttributeSet attrs) {
         this.context = context;
         bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.slide);
+
         this.post(new Runnable() {
             @Override
             public void run() {
@@ -68,12 +71,14 @@ public class ScaleRulerView extends View {
 
 
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        screenWidth = wm.getDefaultDisplay().getWidth() - (int) dp2px(context, 30);
+        screenWidth = wm.getDefaultDisplay().getWidth() - dp2px(context, 30);
         perWidth = screenWidth / 9;
         Log.i("tag", "ScaleRulerView--screenWidth ---- >>> " + screenWidth);
         Log.i("tag", "ScaleRulerView---perWidth ---- >>> " + perWidth);
 
         startPosition = perWidth / 2 * 3;
+
+        endPosition = screenWidth - startPosition;
 
         remainWidth = screenWidth - perWidth * 3;
         Log.i("tag", "ScaleRulerView---remainWidth ---- >>>> " + remainWidth);
@@ -99,6 +104,45 @@ public class ScaleRulerView extends View {
         textPaint.setAntiAlias(true);
         textPaint.setColor(Color.parseColor("#9b9ea9"));
         textPaint.setTextSize(dp2px(context, 12)); //以px为单位
+
+        mBitPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mBitPaint.setFilterBitmap(true);
+        mBitPaint.setDither(true);
+
+        this.setOnTouchListener(new View.OnTouchListener() {
+            float x = 0;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                x = event.getX();
+                if (x < startPosition) {
+                    x = startPosition;
+                }
+                if (x > endPosition) {
+                    x = endPosition;
+                }
+                //截头去尾，中间部分
+                int a = (int) ((x - startPosition) / perRemainWidth);
+                if (((x - startPosition) % perRemainWidth) > perRemainWidth / 2) {
+                    a = a + 1;
+                }
+                if (a > 7) {
+                    a = 7;
+                }
+                Log.i("tag", "a ---- >>>> " + a);
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        moveTo(a);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        moveTo(a);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
 
@@ -109,12 +153,10 @@ public class ScaleRulerView extends View {
         canvas.drawLine(0, startHeight, screenWidth, startHeight, bgPaint);
         canvas.drawLine(0, startHeight, startPosition + perRemainWidth * size, startHeight, slidePaint);
         Log.i("tag", "baseLineY----  >>>> " + baseLineY);
-
+        canvas.drawBitmap(bitmap, startPosition + perRemainWidth * size - startHeight / 2, startHeight / 2, mBitPaint);
         for (int i = 0; i < 8; i++) {
-            canvas.drawText(String.valueOf((i + 1) * 10), startPosition + perRemainWidth * i - slideWidth / 2, baseLineY, textPaint);
+            canvas.drawText(String.valueOf((i + 1) * 10), startPosition + perRemainWidth * i - (float) (slideWidth / 3.5), baseLineY, textPaint);
         }
-
-
     }
 
     public void moveTo(int size) {
@@ -127,9 +169,5 @@ public class ScaleRulerView extends View {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
 
-    }
 }

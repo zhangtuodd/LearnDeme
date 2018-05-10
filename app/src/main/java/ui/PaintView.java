@@ -1,7 +1,7 @@
 package ui;
 
 /**
- * 描述信息
+ * 写字板View
  *
  * @author zhangtuo
  * @date 2018/5/2

@@ -28,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 描述信息
+ * surfaceView 自定义写字板 缺少图片保存功能
  *
  * @author zhangtuo
  * @date 2018/4/28
