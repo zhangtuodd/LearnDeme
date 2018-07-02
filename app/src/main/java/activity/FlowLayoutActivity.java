@@ -10,6 +10,7 @@ import com.example.zhangtuo.learndeme.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import ui.BlockModel;
 import ui.FlowLayout;
 
 /**
@@ -21,7 +22,7 @@ import ui.FlowLayout;
 
 public class FlowLayoutActivity extends Activity {
     LinearLayout layout;
-    List<String> list = new ArrayList<>();
+    List<BlockModel> list = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,10 +30,14 @@ public class FlowLayoutActivity extends Activity {
         setContentView(R.layout.flow_layout);
         layout = (LinearLayout) findViewById(R.id.flow);
         FlowLayout flowLayout = new FlowLayout(this);
-        for (int i = 0; i < 10; i++) {
-            list.add("" + i);
+        for (int i = 0; i < 5; i++) {
+            BlockModel model = new BlockModel();
+            model.text = "" + i;
+            model.isCheck = false;
+            list.add(model);
         }
         flowLayout.setData(list);
+        flowLayout.setCheckStyle(false);
         layout.addView(flowLayout);
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -42,27 +43,38 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.ceshi);
+        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebActivity.class);
+                startActivity(intent);
+            }
+        });
+//        LinearLayout layout = (LinearLayout) findViewById(R.id.ceshi);
+//
+//        Log.i("chushu", " --- >>> " + 5 / 7);
+//        Log.i("chushu", " --- >>> " + 15 / 7);
+//        Log.i("chushu", " --- >>> " + 5 % 7);
+//        Log.i("chushu", " --- >>> " + 15 % 7);
+//        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+//        screenWidth = wm.getDefaultDisplay().getWidth();
+//        perWidth = screenWidth / 4;
+//        perHeight = dp2px(this, 30);
+//        TextView textView = new TextView(this);
+//        textView.setText("50");
+//        textView.setBackgroundResource(R.color.bangumi_index_yellow_bg);
+//        textView.setGravity(Gravity.CENTER);
+//        textView.setLayoutParams(new ViewGroup.LayoutParams(perWidth, perHeight));
+//        layout.addView(textView);
+//        startActivity(new Intent(this, FlowLayoutActivity.class));
 
-        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
-        screenWidth = wm.getDefaultDisplay().getWidth();
-        perWidth = screenWidth / 4;
-        perHeight = dp2px(this, 30);
-        TextView textView = new TextView(this);
-        textView.setText("50");
-        textView.setBackgroundResource(R.color.bangumi_index_yellow_bg);
-        textView.setGravity(Gravity.CENTER);
-        textView.setLayoutParams(new ViewGroup.LayoutParams(perWidth, perHeight));
-        layout.addView(textView);
-        startActivity(new Intent(this, FlowLayoutActivity.class));
+
     }
 
     public int dp2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
-
-
 
 
 //        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
