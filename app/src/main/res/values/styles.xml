@@ -22,4 +22,15 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="BaseDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item><!--没有边框-->
+        <item name="android:windowContentOverlay">@null</item><!--无内容覆盖-->
+        <item name="android:backgroundDimEnabled">true</item><!--dialog之外背景暗色-->
+        <item name="android:windowIsTranslucent">true</item><!--背景半透明-->
+        <item name="android:windowNoTitle">true</item><!--没有标题-->
+        <item name="android:windowCloseOnTouchOutside">true</item><!--返回不取消dialog-->
+        <item name="android:windowSoftInputMode">stateAlwaysVisible|adjustPan</item><!--pan覆盖内容，布局不变形-->
+    </style>
+
 </resources>

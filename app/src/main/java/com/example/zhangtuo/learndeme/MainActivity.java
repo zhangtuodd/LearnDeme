@@ -3,6 +3,8 @@ package com.example.zhangtuo.learndeme;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -14,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
+
 import java.io.ByteArrayOutputStream;
 
 import activity.FlowLayoutActivity;
@@ -22,6 +26,7 @@ import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
 import activity.ScaleRulerActivity;
+import ui.CommonDialog;
 import ui.popupwindow.DeletePupView;
 
 public class MainActivity extends BaseActivity {
@@ -37,19 +42,45 @@ public class MainActivity extends BaseActivity {
     int screenWidth;
     int perHeight;//每个块的高度
     int perWidth;
+    CommonDialog dialog;
+    ImageView imageView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
+        imageView = (ImageView) findViewById(R.id.iv);
+        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WebActivity.class);
-                startActivity(intent);
+                dialog = new CommonDialog(MainActivity.this, "确认删除吗？", "确认", "取消", new CommonDialog.ActionListener() {
+                    @Override
+                    public void clickLeft() {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = false;
+                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic, options);
+                        Log.d("logWrapperImageView", "width=" + bitmap.getWidth() + ",height=" + bitmap.getHeight() + ",size=" + bitmap.getByteCount());
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void clickRight() {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
+//        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                MobclickAgent.onEvent(MainActivity.this,"home");
+//                Intent intent = new Intent(MainActivity.this, FlowLayoutActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 //        LinearLayout layout = (LinearLayout) findViewById(R.id.ceshi);
 //
 //        Log.i("chushu", " --- >>> " + 5 / 7);
@@ -77,12 +108,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-//        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
-//            }
-//        });
 //        findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
