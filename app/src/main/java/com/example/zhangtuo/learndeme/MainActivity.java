@@ -4,28 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.umeng.analytics.MobclickAgent;
 
 import java.io.ByteArrayOutputStream;
 
-import activity.FlowLayoutActivity;
+//import mvvm.OneActivity;
+import mvvm.BIndActivity;
+import mvvm.BIndActivity2;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
-import activity.ScaleRulerActivity;
 import ui.CommonDialog;
 import ui.popupwindow.DeletePupView;
 
@@ -51,6 +45,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
+        startActivity(new Intent(this, BIndActivity2.class));
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -55,6 +55,10 @@
 
         <activity android:name="com.example.zhangtuo.learndeme.WebActivity" />
 
+        <activity android:name="mvvm.BIndActivity" />
+
+        <activity android:name="mvvm.BIndActivity2" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
