@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="mvvm.User" />
+
+        <variable
+            name="presenter"
+            type="mvvm.BIndActivity5.UserPresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.onUserNameClick()}"
+            android:padding="10dp"
+            android:text="@{user.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{user.password}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{presenter.afterTextChanged}"
+            android:hint="用户名"
+            android:padding="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{presenter.afterUserPasswordChanged}"
+            android:hint="密码"
+            android:padding="10dp" />
+
+    </LinearLayout>
+</layout>

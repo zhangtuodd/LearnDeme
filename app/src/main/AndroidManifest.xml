@@ -63,6 +63,8 @@
 
         <activity android:name="mvvm.BIndActivity4" />
 
+        <activity android:name="mvvm.BIndActivity5" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
