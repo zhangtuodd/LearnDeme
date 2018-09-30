@@ -10,6 +10,8 @@
         <variable
             name="presenter"
             type="mvvm.BIndActivity5.UserPresenter" />
+
+        <import type="mvvm.StringUtils"/>
     </data>
 
     <LinearLayout
@@ -22,7 +24,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{()->presenter.onUserNameClick()}"
             android:padding="10dp"
-            android:text="@{user.name}" />
+            android:text="@{StringUtils.toUpperCase(user.name)}" />
 
         <TextView
             android:layout_width="match_parent"
