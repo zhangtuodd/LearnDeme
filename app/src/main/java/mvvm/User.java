@@ -2,6 +2,11 @@ package mvvm;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.BindingAdapter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zhangtuo.learndeme.BR;
 
@@ -30,4 +35,6 @@ public class User extends BaseObservable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
