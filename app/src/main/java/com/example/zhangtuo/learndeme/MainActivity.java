@@ -20,6 +20,7 @@ import mvvm.BIndActivity3;
 import mvvm.BIndActivity4;
 import mvvm.BIndActivity5;
 import mvvm.BIndActivity6;
+import mvvm.BIndActivity7;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -49,7 +50,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, BIndActivity6.class));
+        startActivity(new Intent(this, BIndActivity7.class));
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
