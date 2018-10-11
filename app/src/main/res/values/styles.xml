@@ -30,7 +30,18 @@
         <item name="android:windowIsTranslucent">true</item><!--背景半透明-->
         <item name="android:windowNoTitle">true</item><!--没有标题-->
         <item name="android:windowCloseOnTouchOutside">true</item><!--返回不取消dialog-->
-        <item name="android:windowSoftInputMode">stateAlwaysVisible|adjustPan</item><!--pan覆盖内容，布局不变形-->
+        <item name="android:windowSoftInputMode">stateAlwaysVisible|adjustPan
+        </item><!--pan覆盖内容，布局不变形-->
     </style>
+
+    <!--启动界面主题-->
+    <style name="App.Theme.Launch" parent="AppTheme">
+        <item name="android:background">@drawable/splash</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
 
 </resources>
