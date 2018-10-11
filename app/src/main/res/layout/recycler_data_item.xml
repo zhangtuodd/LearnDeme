@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bindingAdapter="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="mvvm.Recycler_Data" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            bindingAdapter:recycler_imageUrl="@{data.imageUrl}" />
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/item_image"
+            bindingAdapter:recycler_text="@{data.text}" />
+    </RelativeLayout>
+</layout>

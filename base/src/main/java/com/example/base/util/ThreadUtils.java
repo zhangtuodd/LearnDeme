@@ -1,8 +1,7 @@
-package utils;
+package com.example.base.util;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

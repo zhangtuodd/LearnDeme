@@ -30,7 +30,7 @@ public class WebActivity extends BaseActivity {
         setContentView(R.layout.web_view_layout);
         webView = (X5WebView) findViewById(R.id.web_view);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        webView.loadUrl("http://hd.dev.cloud-young.cn/hdweb/lottery/#/prizedraw/n0Wk3EqLFzfNooAm");
+        webView.loadUrl("http://www.yuedongqc.com/app/index.php?i=2&c=entry&m=xyshopx&do=mobile");
     }
 
 }

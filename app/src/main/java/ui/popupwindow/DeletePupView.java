@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
+import com.example.base.util.SizeUtils;
 import com.example.zhangtuo.learndeme.R;
 
-import utils.SizeUtils;
 
 
 /**

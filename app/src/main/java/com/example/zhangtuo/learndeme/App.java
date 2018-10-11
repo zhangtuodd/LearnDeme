@@ -24,7 +24,7 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-        SDKInitializer.initialize(this);
+//        SDKInitializer.initialize(this);
         super.onCreate();
         mInstance = this;
         init();

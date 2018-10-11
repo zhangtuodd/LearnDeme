@@ -1,4 +1,4 @@
-package utils;
+package com.example.base.util;
 
 import android.content.Context;
 

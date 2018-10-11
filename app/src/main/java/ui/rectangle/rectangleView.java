@@ -12,9 +12,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.base.util.SizeUtils;
 import com.example.zhangtuo.learndeme.R;
-
-import utils.SizeUtils;
 
 /**
  * 描述信息
