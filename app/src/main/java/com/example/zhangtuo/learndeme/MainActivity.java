@@ -15,6 +15,7 @@ import java.io.ByteArrayOutputStream;
 
 //import mvvm.OneActivity;
 import mvvm.BIndActivity;
+import mvvm.BIndActivity10;
 import mvvm.BIndActivity2;
 import mvvm.BIndActivity3;
 import mvvm.BIndActivity4;
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, BIndActivity9.class));
+        startActivity(new Intent(this, BIndActivity10.class));
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
