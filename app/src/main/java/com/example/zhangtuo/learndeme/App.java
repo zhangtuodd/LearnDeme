@@ -1,6 +1,9 @@
 package com.example.zhangtuo.learndeme;
 
 import android.app.Application;
+import android.arch.lifecycle.ViewModel;
+import android.databinding.BindingAdapter;
+import android.databinding.ViewDataBinding;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -11,6 +14,8 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
+import mvvm.BindAdapters;
+import mvvm.ViewModelBinder;
 import widget.ProgressDialog;
 
 /**
@@ -70,6 +75,8 @@ public class App extends Application {
         ARouter.openDebug();// 开启日志
         ARouter.init(mInstance); // 尽可能早，推荐在Application中初始化
 
+        //mvvm初始化binder
+        BindAdapters.setBinder(BindAdapters.viewModelBinder);
     }
 
     public static App getInstance() {

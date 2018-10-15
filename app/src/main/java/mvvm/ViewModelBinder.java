@@ -1,7 +1,8 @@
 package mvvm;
 
-import android.arch.lifecycle.ViewModel;
 import android.databinding.ViewDataBinding;
+
+import mvvm.vm.ViewModel;
 
 /**
  * databinding 绑定器
