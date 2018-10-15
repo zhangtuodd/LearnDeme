@@ -1,8 +1,11 @@
-package mvvm;
+package mvvm.activity;
 
 import android.support.annotation.NonNull;
 
 import com.example.zhangtuo.learndeme.R;
+
+import mvvm.vm.MainViewModel;
+import mvvm.vm.ViewModel;
 
 /**
  * 描述信息

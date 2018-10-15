@@ -1,4 +1,4 @@
-package mvvm;
+package mvvm.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -10,6 +10,9 @@ import android.support.annotation.Nullable;
 
 import com.example.zhangtuo.learndeme.BR;
 import com.example.zhangtuo.learndeme.BaseActivity;
+
+import mvvm.Navigator;
+import mvvm.vm.ViewModel;
 
 /**
  * 描述信息
@@ -26,7 +29,7 @@ public abstract class BaseMvvmActivity extends BaseActivity {
     protected abstract int getLayoutId();
 
     @NonNull
-    protected abstract mvvm.ViewModel createViewModel();
+    protected abstract ViewModel createViewModel();
 
 
     @Override

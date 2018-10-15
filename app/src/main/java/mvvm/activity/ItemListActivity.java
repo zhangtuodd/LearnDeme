@@ -1,8 +1,11 @@
-package mvvm;
+package mvvm.activity;
 
 import android.support.annotation.NonNull;
 
 import com.example.zhangtuo.learndeme.R;
+
+import mvvm.vm.ItemListViewModel;
+import mvvm.vm.ViewModel;
 
 /**
  * 描述信息
@@ -11,7 +14,7 @@ import com.example.zhangtuo.learndeme.R;
  * @date 2018/10/15
  */
 
-public class ItemListActivity  extends BaseMvvmActivity{
+public class ItemListActivity  extends BaseMvvmActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_item_list;
@@ -19,7 +22,7 @@ public class ItemListActivity  extends BaseMvvmActivity{
 
     @NonNull
     @Override
-    protected mvvm.ViewModel createViewModel() {
+    protected ViewModel createViewModel() {
         return new ItemListViewModel(getNavigator());
     }
 }

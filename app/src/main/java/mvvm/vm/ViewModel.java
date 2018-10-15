@@ -1,4 +1,4 @@
-package mvvm;
+package mvvm.vm;
 
 /**
  * 描述信息

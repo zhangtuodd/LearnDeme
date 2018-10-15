@@ -1,9 +1,10 @@
-package mvvm;
+package mvvm.vm;
 
 
 import android.support.annotation.NonNull;
 
 import io.reactivex.functions.Action;
+import mvvm.Navigator;
 
 /**
  * 描述信息

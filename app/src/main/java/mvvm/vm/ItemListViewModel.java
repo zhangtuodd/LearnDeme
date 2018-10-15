@@ -1,4 +1,6 @@
-package mvvm;
+package mvvm.vm;
+
+import mvvm.Navigator;
 
 /**
  * 描述信息
@@ -7,7 +9,7 @@ package mvvm;
  * @date 2018/10/15
  */
 
-class ItemListViewModel implements ViewModel {
+public class ItemListViewModel implements ViewModel {
 
     public ItemListViewModel(Navigator navigator) {
     }
