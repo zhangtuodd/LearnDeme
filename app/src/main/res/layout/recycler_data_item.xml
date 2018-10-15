@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="mvvm.Recycler_Data" />
+            type="databinding.Recycler_Data" />
 
 
     </data>

@@ -1,10 +1,8 @@
-package mvvm;
+package databinding;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.zhangtuo.learndeme.BaseActivity;
 import com.example.zhangtuo.learndeme.R;

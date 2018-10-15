@@ -1,4 +1,4 @@
-package mvvm;
+package databinding;
 
 /**
  * 这里为了测试类方法

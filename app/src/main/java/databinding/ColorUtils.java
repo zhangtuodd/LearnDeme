@@ -1,9 +1,4 @@
-package mvvm;
-
-import android.databinding.BindingConversion;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+package databinding;
 
 /**
  * 描述信息

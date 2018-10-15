@@ -1,4 +1,4 @@
-package mvvm;
+package databinding;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;

@@ -1,12 +1,7 @@
-package mvvm;
+package databinding;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.zhangtuo.learndeme.BR;
 

@@ -6,7 +6,7 @@
 
         <variable
             name="goods"
-            type="mvvm.Goods2" />
+            type="databinding.Goods2" />
     </data>
 
 

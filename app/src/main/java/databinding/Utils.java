@@ -1,7 +1,6 @@
-package mvvm;
+package databinding;
 
 import android.databinding.BindingAdapter;
-import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;

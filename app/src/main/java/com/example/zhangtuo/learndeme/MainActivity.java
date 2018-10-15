@@ -14,16 +14,7 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 
 //import mvvm.OneActivity;
-import mvvm.BIndActivity;
-import mvvm.BIndActivity10;
-import mvvm.BIndActivity2;
-import mvvm.BIndActivity3;
-import mvvm.BIndActivity4;
-import mvvm.BIndActivity5;
-import mvvm.BIndActivity6;
-import mvvm.BIndActivity7;
-import mvvm.BIndActivity8;
-import mvvm.BIndActivity9;
+import databinding.BIndActivity10;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;

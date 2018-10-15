@@ -1,8 +1,7 @@
-package mvvm;
+package databinding;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import com.example.zhangtuo.learndeme.R;
 import com.example.zhangtuo.learndeme.databinding.RecyclerDataItemBinding;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * 描述信息

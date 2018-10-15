@@ -5,11 +5,11 @@
 
         <variable
             name="goods"
-            type="mvvm.Goods" />
+            type="databinding.Goods" />
 
         <variable
             name="goodsHandler"
-            type="mvvm.BIndActivity.GoodsHandler"/>
+            type="databinding.BIndActivity.GoodsHandler"/>
     </data>
 
     <LinearLayout

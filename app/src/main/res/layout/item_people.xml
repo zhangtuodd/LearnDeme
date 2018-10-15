@@ -5,7 +5,7 @@
 
         <variable
             name="people"
-            type="mvvm.People" />
+            type="databinding.People" />
     </data>
 
     <LinearLayout

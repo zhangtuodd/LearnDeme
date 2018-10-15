@@ -73,25 +73,25 @@
 
         <activity android:name="com.example.zhangtuo.learndeme.WebActivity" />
 
-        <activity android:name="mvvm.BIndActivity" />
+        <activity android:name="databinding.BIndActivity" />
 
-        <activity android:name="mvvm.BIndActivity2" />
+        <activity android:name="databinding.BIndActivity2" />
 
-        <activity android:name="mvvm.BIndActivity3" />
+        <activity android:name="databinding.BIndActivity3" />
 
-        <activity android:name="mvvm.BIndActivity4" />
+        <activity android:name="databinding.BIndActivity4" />
 
-        <activity android:name="mvvm.BIndActivity5" />
+        <activity android:name="databinding.BIndActivity5" />
 
-        <activity android:name="mvvm.BIndActivity6" />
+        <activity android:name="databinding.BIndActivity6" />
 
-        <activity android:name="mvvm.BIndActivity7" />
+        <activity android:name="databinding.BIndActivity7" />
 
-        <activity android:name="mvvm.BIndActivity8" />
+        <activity android:name="databinding.BIndActivity8" />
 
-        <activity android:name="mvvm.BIndActivity9" />
+        <activity android:name="databinding.BIndActivity9" />
 
-        <activity android:name="mvvm.BIndActivity10" />
+        <activity android:name="databinding.BIndActivity10" />
 
         <service
             android:name="com.baidu.location.f"

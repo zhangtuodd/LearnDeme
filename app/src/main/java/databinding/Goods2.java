@@ -1,4 +1,4 @@
-package mvvm;
+package databinding;
 
 import android.databinding.ObservableField;
 import android.databinding.ObservableFloat;

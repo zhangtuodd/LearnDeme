@@ -5,13 +5,13 @@
 
         <variable
             name="user"
-            type="mvvm.User" />
+            type="databinding.User" />
 
         <variable
             name="presenter"
-            type="mvvm.BIndActivity5.UserPresenter" />
+            type="databinding.BIndActivity5.UserPresenter" />
 
-        <import type="mvvm.StringUtils"/>
+        <import type="databinding.StringUtils"/>
     </data>
 
     <LinearLayout
