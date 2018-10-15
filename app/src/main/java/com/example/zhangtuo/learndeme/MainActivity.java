@@ -15,6 +15,7 @@ import java.io.ByteArrayOutputStream;
 
 //import mvvm.OneActivity;
 import databinding.BIndActivity10;
+import mvvm.MainMActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -44,7 +45,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, BIndActivity10.class));
+        startActivity(new Intent(this, MainMActivity.class));
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

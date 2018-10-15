@@ -93,6 +93,10 @@
 
         <activity android:name="databinding.BIndActivity10" />
 
+        <activity android:name="mvvm.ItemListActivity" />
+
+        <activity android:name="mvvm.MainMActivity" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
