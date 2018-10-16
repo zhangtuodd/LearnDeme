@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
+        <variable
+            name="vm"
+            type="mvvm.vm.ItemListViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="adapter view" />
+
+        <!--
+        数据 - adapter - 竖布局 - 多条目
+        viewmodel 配合 @BindingAdapter实现
+        -->
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:items="@{vm.itemVms}"
+            bind:verticle="@{true}">
+
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 </layout>

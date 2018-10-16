@@ -53,17 +53,7 @@
 
         <activity android:name=".PermissionActivity" />
 
-        <activity
-            android:name="com.example.zhangtuo.learndeme.SplashActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/App.Theme.Launch">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name="com.example.zhangtuo.learndeme.SplashActivity" />
 
         <activity android:name="activity.PaintViewActivity" />
 
@@ -96,6 +86,9 @@
         <activity android:name="mvvm.activity.ItemListActivity" />
 
         <activity android:name="mvvm.activity.MainMActivity" />
+
+        <activity android:name="mvvm.activity.ItemActivity" />
+
 
         <service
             android:name="com.baidu.location.f"

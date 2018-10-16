@@ -9,4 +9,6 @@ package mvvm;
 
 public interface Navigator {
     void navigateToAdapter();
+
+    void navigateToRecyclerItem();
 }

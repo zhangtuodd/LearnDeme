@@ -8,7 +8,6 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.example.zhangtuo.learndeme.BR;
 import com.example.zhangtuo.learndeme.BaseActivity;
 
 import mvvm.BindAdapters;
@@ -56,6 +55,11 @@ public abstract class BaseMvvmActivity extends BaseActivity {
             @Override
             public void navigateToAdapter() {
                 navigate(ItemListActivity.class);
+            }
+
+            @Override
+            public void navigateToRecyclerItem() {
+                navigate(ItemActivity.class);
             }
 
             private void navigate(Class<?> destination) {//目的地
