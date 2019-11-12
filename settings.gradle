@@ -1,1 +1,1 @@
-include ':app', ':bilibili', ':base', ':collcetion'
+include ':app', ':bilibili', ':base'

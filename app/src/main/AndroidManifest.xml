@@ -89,6 +89,7 @@
 
         <activity android:name="mvvm.activity.ItemActivity" />
         <activity android:name="ui.CycleMoveActivity" />
+        <activity android:name="activity.TestCacheActivity" />
 
 
         <service

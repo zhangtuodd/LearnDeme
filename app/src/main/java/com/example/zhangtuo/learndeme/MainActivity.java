@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 
 //import mvvm.OneActivity;
+import activity.TestCacheActivity;
 import mvvm.activity.MainMActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
@@ -45,29 +46,30 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, CycleMoveActivity.class));
-        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog = new CommonDialog(MainActivity.this, "确认删除吗？", "确认", "取消", new CommonDialog.ActionListener() {
-                    @Override
-                    public void clickLeft() {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = false;
-                        options.inPreferredConfig = Bitmap.Config.RGB_565;
-                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic, options);
-                        Log.d("logWrapperImageView", "width=" + bitmap.getWidth() + ",height=" + bitmap.getHeight() + ",size=" + bitmap.getByteCount());
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void clickRight() {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
-            }
-        });
+        startActivity(new Intent(this, TestCacheActivity.class));
+//        startActivity(new Intent(this, CycleMoveActivity.class));
+//        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog = new CommonDialog(MainActivity.this, "确认删除吗？", "确认", "取消", new CommonDialog.ActionListener() {
+//                    @Override
+//                    public void clickLeft() {
+//                        BitmapFactory.Options options = new BitmapFactory.Options();
+//                        options.inJustDecodeBounds = false;
+//                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+//                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pic, options);
+//                        Log.d("logWrapperImageView", "width=" + bitmap.getWidth() + ",height=" + bitmap.getHeight() + ",size=" + bitmap.getByteCount());
+//                        dialog.dismiss();
+//                    }
+//
+//                    @Override
+//                    public void clickRight() {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                dialog.show();
+//            }
+//        });
 //        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

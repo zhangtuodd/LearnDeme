@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "28.0.2"
+    buildToolsVersion "27.0.3"
 
 
     defaultConfig {
@@ -34,7 +34,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.android.support:appcompat-v7:27.1.1'    //    compile 'com.jakewharton:butterknife:8.5.1'
+    api 'com.android.support:appcompat-v7:27.+'    //    compile 'com.jakewharton:butterknife:8.5.1'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     //    compile 'com.alibaba:arouter-api:1.2.4'
     //    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
