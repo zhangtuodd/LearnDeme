@@ -2,15 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+
 
     <ui.customview.CircleBarView
         android:id="@+id/circle_bar_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
         app:circle_bg_color="@android:color/darker_gray"
         app:circle_color="@android:color/holo_green_dark"
-        app:circle_stoken_width="20dp"
-        app:start_angle="90"
-        />
+        app:circle_stoken_width="10dp"
+        app:start_angle="-90" />
+
+    <ui.DouyinProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:bg_color="@color/gray_dark"
+        app:pause_color="@color/pink"
+        app:record_color="@color/bangumi_index_green_bg"
+        android:background="@color/bangumi_badge_gary"
+        app:stroke_width="20dp" />
 </RelativeLayout>

@@ -34,7 +34,7 @@ import com.example.zhangtuo.learndeme.R;
  */
 
 public class CircleBarView extends View {
-    private Paint rectPaint;//矩形外框
+//    private Paint rectPaint;//矩形外框
     private Paint circleBgPaint;
     private Paint circlePaint;//圆形
 
@@ -78,10 +78,10 @@ public class CircleBarView extends View {
         mRectF = new RectF();
 
 
-        rectPaint = new Paint();
-        rectPaint.setStyle(Paint.Style.STROKE);//只描边
-        rectPaint.setStrokeWidth(barWidth);
-        rectPaint.setColor(Color.parseColor("#F2935B"));
+//        rectPaint = new Paint();
+//        rectPaint.setStyle(Paint.Style.STROKE);//只描边
+//        rectPaint.setStrokeWidth(barWidth);
+//        rectPaint.setColor(Color.parseColor("#F2935B"));
 
         circlePaint = new Paint();
         circlePaint.setColor(circleColor);
@@ -110,7 +110,7 @@ public class CircleBarView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawRect(mRectF, rectPaint);
+//        canvas.drawRect(mRectF, rectPaint);
 
         canvas.drawArc(mRectF, 0, 360, false, circleBgPaint);
 
@@ -161,7 +161,7 @@ public class CircleBarView extends View {
             super.applyTransformation(interpolatedTime, t);
 
             actualAngle = interpolatedTime * progressNum * maxNum / 100;//这里计算进度条的比例
-//            Log.i("tag", "interpolatedTime--------------:" + interpolatedTime);
+            Log.i("tag", "interpolatedTime--------------:" + interpolatedTime);
             if (textView != null) {
                 textView.setText(decimalFormat.format(interpolatedTime * progressNum) + "%");
             }

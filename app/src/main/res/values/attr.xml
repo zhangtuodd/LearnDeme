@@ -8,6 +8,14 @@
         <attr name="start_angle" format="float"></attr>
     </declare-styleable>
 
+
+    <declare-styleable name="DouyinProgressBar">
+        <attr name="record_color" format="color"></attr>
+        <attr name="pause_color" format="color"></attr>
+        <attr name="bg_color" format="color"></attr>
+        <attr name="stroke_width" format="dimension"></attr>
+    </declare-styleable>
+
     <declare-styleable name="CompatToolbar">
         <attr name="immersed_bg_color" format="color" />
         <attr name="title_size" format="dimension" />

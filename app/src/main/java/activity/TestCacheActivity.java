@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
+import com.example.base.util.StringUtils;
 import com.example.zhangtuo.learndeme.R;
 
 import cache.Person;
@@ -24,6 +25,7 @@ public class TestCacheActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_cache_layout);
+        StringUtils.test();
         final Person person = new Person("zhang", "22");
         findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
             @Override

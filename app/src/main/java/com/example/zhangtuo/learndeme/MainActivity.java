@@ -22,6 +22,7 @@ import proxy.IStarBehaviorPlus;
 import proxy.Star;
 import ui.CommonDialog;
 import ui.CycleMoveActivity;
+import ui.customview.CustomViewActivity;
 import ui.popupwindow.DeletePupView;
 
 public class MainActivity extends BaseActivity {
@@ -46,7 +47,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, TestCacheActivity.class));
+        startActivity(new Intent(this, CustomViewActivity.class));
 //        startActivity(new Intent(this, CycleMoveActivity.class));
 //        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -27,7 +27,7 @@ public class CustomViewActivity extends Activity {
 //        circleNum = (TextView) findViewById(R.id.tv);
         circleBarView.setTextView(circleNum);
         //
-        circleBarView.setProgressNum(50, 3000);
+        circleBarView.setProgressNum(0, 3000);
 
     }
 
