@@ -13,7 +13,7 @@
         <attr name="record_color" format="color"></attr>
         <attr name="pause_color" format="color"></attr>
         <attr name="bg_color" format="color"></attr>
-        <attr name="stroke_width" format="dimension"></attr>
+        <attr name="stroke_width" format="integer"></attr>
     </declare-styleable>
 
     <declare-styleable name="CompatToolbar">

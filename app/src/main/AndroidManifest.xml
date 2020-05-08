@@ -6,16 +6,19 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -30,7 +33,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +41,18 @@
 
         </activity>
 
+        <activity android:name="camera_video_record.cameraDemo01.Record2Activity" />
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.zhangtuo.learndeme"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
 
         <activity
             android:name="com.example.zhangtuo.learndeme.LifeCyclerActivity"
@@ -102,6 +116,17 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="e3vGBXwHHG1GRSOZGhDKCaqWVNZiy1Wy" />
+
+
+        <activity android:name="camera_video_record.cameraDemo01.CameraTakePictureActivity" />
+
+        <activity android:name="camera_video_record.cameraDemo01.RecordingActivity" />
+
+        <activity android:name="camera_video_record.RecordActivity" />
+
+        <activity android:name="takepic.recordvideo.save.db.TakePicRecordActivity" />
+
+        <activity android:name="takepic.recordvideo.save.db.CustomCameraActivity" />
 
     </application>
 

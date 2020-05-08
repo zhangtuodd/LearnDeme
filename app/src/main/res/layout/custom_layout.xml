@@ -15,12 +15,69 @@
         app:circle_stoken_width="10dp"
         app:start_angle="-90" />
 
-    <ui.DouyinProgressBar
+
+    <ui.customview.RoundRectLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        app:bg_color="@color/gray_dark"
-        app:pause_color="@color/pink"
-        app:record_color="@color/bangumi_index_green_bg"
-        android:background="@color/bangumi_badge_gary"
-        app:stroke_width="20dp" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <ui.DouyinProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:bg_color="@color/gray_dark"
+            app:pause_color="@color/pink"
+            app:record_color="@color/bangumi_index_green_bg"
+            app:stroke_width="20" />
+    </ui.customview.RoundRectLayout>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true"
+        android:background="#1a1a1a"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/zan" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:text="2月2日，火神山医院交付，明天开始收治病人"
+            android:textColor="#F1253D"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="center"
+            android:src="@drawable/zan" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ed3a37"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="2月2日，火神山医院交付，明天开始收治病人2月2日，火神山医院交付，明天开始收治病人"
+        android:textColor="#dadc4c"
+        android:textSize="30sp" />
+
+
 </RelativeLayout>

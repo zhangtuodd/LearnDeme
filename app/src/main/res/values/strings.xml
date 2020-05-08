@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">悦动全城</string>
+    <string name="app_name">悦动</string>
     <string name="module_base_cancle_end">取消，\"已结束\"</string>
+    <string name="focus">focus</string>
+    <string name="take_pic">take«Pic</string>
+    <string name="restart">restart</string>
 </resources>

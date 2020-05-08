@@ -1,25 +1,40 @@
 package com.example.zhangtuo.learndeme;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
 //import mvvm.OneActivity;
 import activity.TestCacheActivity;
+import camera_video_record.RecordActivity;
+import camera_video_record.cameraDemo01.CameraTakePictureActivity;
+import camera_video_record.cameraDemo01.Record2Activity;
+import camera_video_record.cameraDemo01.RecordingActivity;
 import mvvm.activity.MainMActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
+import takepic.recordvideo.save.db.CustomCameraActivity;
+import takepic.recordvideo.save.db.TakePicRecordActivity;
 import ui.CommonDialog;
 import ui.CycleMoveActivity;
 import ui.customview.CustomViewActivity;
@@ -31,7 +46,7 @@ public class MainActivity extends BaseActivity {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     ImageView iv;
 
-
+    private Button recordVideo;
     private ImageView mIVSign;
     private TextView mTVSign;
     private Bitmap mSignBitmap;
@@ -40,14 +55,78 @@ public class MainActivity extends BaseActivity {
     int perWidth;
     CommonDialog dialog;
     ImageView imageView;
+    RelativeLayout relativeLayout;
 
+
+    private void checkPerm() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            coLaunch();
+
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.CAMERA,
+                            Manifest.permission.RECORD_AUDIO}, 101);
+        }
+    }
+
+    private void coLaunch() {
+//        startActivity(new Intent(this, TakePicRecordActivity.class));
+        startActivity(new Intent(this, CustomCameraActivity.class));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 101:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    coLaunch();
+
+                } else {
+                    Toast.makeText(this, "Permissions Denied", Toast.LENGTH_SHORT).show();
+                }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
-        startActivity(new Intent(this, CustomViewActivity.class));
+        recordVideo = findViewById(R.id.recordVideo);
+        recordVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkPerm();
+            }
+        });
+
+//        relativeLayout = findViewById(R.id.rl);
+//
+//        TextView tv1 = new TextView(this);
+//        tv1.setText("111");
+//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+//        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,RelativeLayout.TRUE);
+//        params.addRule(RelativeLayout.ALIGN_PARENT_END,RelativeLayout.TRUE);
+//        params.setMargins(20,20,10,10);
+//        tv1.setLayoutParams(params);
+//        relativeLayout.addView(tv1);
+//
+//
+//        TextView tv2 = new TextView(this);
+//        tv2.setText("000");
+//        relativeLayout.addView(tv2);
+//        RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+//        params2.addRule(RelativeLayout.ALIGN_PARENT_TOP,RelativeLayout.TRUE);
+//        params2.addRule(RelativeLayout.ALIGN_PARENT_LEFT,RelativeLayout.TRUE);
+//        params2.setMargins(50,50,0,0);
+//        tv2.setLayoutParams(params2);
+
+
+//        startActivity(new Intent(this, CustomViewActivity.class));
 //        startActivity(new Intent(this, CycleMoveActivity.class));
 //        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
 //            @Override

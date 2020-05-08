@@ -56,26 +56,28 @@ public class DouyinProgressBar extends View {
         int bgColor = typedArray.getColor(R.styleable.DouyinProgressBar_bg_color, Color.GRAY);
         int recordColor = typedArray.getColor(R.styleable.DouyinProgressBar_record_color, Color.YELLOW);
         int pauseColor = typedArray.getColor(R.styleable.DouyinProgressBar_pause_color, Color.WHITE);
-        barWidth = typedArray.getDimension(R.styleable.DouyinProgressBar_stroke_width, px2dip(context, 5));
+//        barWidth = typedArray.getFloat(R.styleable.DouyinProgressBar_stroke_width, 4);
+        barWidth = dip2px(context,20);
         typedArray.recycle();
+
 
         dp16 = dip2px(mContext, 16);
         bgPaint = new Paint();
         bgPaint.setColor(bgColor);
-        bgPaint.setStrokeWidth(barWidth);
-        bgPaint.setStyle(Paint.Style.STROKE);
+//        bgPaint.setStrokeWidth(barWidth);
+        bgPaint.setStyle(Paint.Style.FILL);
         bgPaint.setAntiAlias(true);
 
         recordPaint = new Paint();
         recordPaint.setColor(recordColor);
-        recordPaint.setStrokeWidth(barWidth);
-        recordPaint.setStyle(Paint.Style.STROKE);
+//        recordPaint.setStrokeWidth(barWidth);
+        recordPaint.setStyle(Paint.Style.FILL);
         recordPaint.setAntiAlias(true);
 
         pausePaint = new Paint();
         pausePaint.setColor(pauseColor);
-        pausePaint.setStrokeWidth(barWidth);
-        pausePaint.setStyle(Paint.Style.STROKE);
+//        pausePaint.setStrokeWidth(barWidth);
+        pausePaint.setStyle(Paint.Style.FILL);
         pausePaint.setAntiAlias(true);
 
         record();
@@ -95,7 +97,8 @@ public class DouyinProgressBar extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawLine(dp16, 0, recordPix, 0, recordPaint);
+//        canvas.drawLine(0, 0, recordPix, 0, recordPaint);
+        canvas.drawRect(0, 0, recordPix, barWidth, recordPaint);
 //        canvas.drawLine(0, 0, getScreenWidth(mContext) / 2, 0, bgPaint);
     }
 
@@ -129,7 +132,8 @@ public class DouyinProgressBar extends View {
                 pause();
                 return;
             }
-            recordPix = (getScreenWidth(mContext) - dp16 * 2) / 60 * segments + dp16;
+//            recordPix = (getScreenWidth(mContext) - dp16 * 2) / 60 * segments + dp16;
+            recordPix = (getScreenWidth(mContext) - dp16 * 2) / 60 * segments;
             invalidate();
             LogUtils.i("DouyinProgressBar", "segments------------" + segments);
             LogUtils.i("DouyinProgressBar", "recordPix------------" + recordPix);

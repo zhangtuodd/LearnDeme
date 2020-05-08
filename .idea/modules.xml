@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LearnDemo.iml" filepath="$PROJECT_DIR$/LearnDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bilibili/bilibili.iml" filepath="$PROJECT_DIR$/bilibili/bilibili.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearnDemo.iml" filepath="$PROJECT_DIR$/LearnDemo.iml" group="LearnDemo" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="LearnDemo/app" />
+      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" group="LearnDemo/base" />
+      <module fileurl="file://$PROJECT_DIR$/bilibili/bilibili.iml" filepath="$PROJECT_DIR$/bilibili/bilibili.iml" group="LearnDemo/bilibili" />
     </modules>
   </component>
 </project>

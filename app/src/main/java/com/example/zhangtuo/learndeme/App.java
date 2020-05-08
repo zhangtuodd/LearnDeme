@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.SDKInitializer;
+import com.example.base.BaseApp;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -22,7 +23,7 @@ import widget.ProgressDialog;
  * Created by zhangtuo on 2017/11/28.
  */
 
-public class App extends Application {
+public class App extends BaseApp {
 
     public static App mInstance;
     public static Handler mHandler = new Handler(Looper.getMainLooper());

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/take_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="take_picture" />
+
+    <Button
+        android:id="@+id/btn_recording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/take_picture"
+        android:layout_toRightOf="@+id/take_picture"
+        android:text="开始录像" />
+
+    <Button
+        android:id="@+id/btn_start_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/btn_recording"
+        android:layout_toRightOf="@+id/btn_recording"
+        android:text="开启预览" />
+
+    <SurfaceView
+        android:id="@+id/picture_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/take_picture" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/take_picture" />
+</RelativeLayout>
