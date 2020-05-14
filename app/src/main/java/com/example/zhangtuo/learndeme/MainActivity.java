@@ -37,6 +37,8 @@ import takepic.recordvideo.save.db.CustomCameraActivity;
 import takepic.recordvideo.save.db.TakePicRecordActivity;
 import ui.CommonDialog;
 import ui.CycleMoveActivity;
+import ui.HostInfo;
+import ui.MasterBlockView;
 import ui.customview.CustomViewActivity;
 import ui.popupwindow.DeletePupView;
 
@@ -91,12 +93,26 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    private MasterBlockView masterBlockView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.iv);
         recordVideo = findViewById(R.id.recordVideo);
+        masterBlockView = findViewById(R.id.master_view);
+        HostInfo hostInfo = new HostInfo();
+        //赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧
+        hostInfo.content = "现在央视频APP里登录的，不是你刚刚的%s赶紧";
+        hostInfo.avatarImg = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
+        masterBlockView.setData(hostInfo, new MasterBlockView.VisibleListener() {
+            @Override
+            public void visibleType(boolean b) {
+                if(b){
+                    masterBlockView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         recordVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
