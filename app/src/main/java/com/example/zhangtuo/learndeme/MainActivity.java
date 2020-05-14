@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Random;
 
 //import mvvm.OneActivity;
 import activity.TestCacheActivity;
@@ -103,7 +104,7 @@ public class MainActivity extends BaseActivity {
         masterBlockView = findViewById(R.id.master_view);
         HostInfo hostInfo = new HostInfo();
         //赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧
-        hostInfo.content = "现在央视频APP里登录的，不是你刚刚的%s赶紧";
+        hostInfo.content = "公告内容不一样时才更新跑马灯公告内容公告1";//不一"+ new Random().nextInt(100)
         hostInfo.avatarImg = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
         masterBlockView.setData(hostInfo, new MasterBlockView.VisibleListener() {
             @Override

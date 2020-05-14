@@ -7,9 +7,9 @@
     <ImageView
         android:id="@+id/master_avatar"
         android:layout_width="18dp"
-        android:background="@color/black_80"
         android:layout_height="18dp"
-        android:layout_margin="6dp" />
+        android:layout_margin="6dp"
+        android:background="@color/black_80" />
 
     <ImageView
         android:id="@+id/master_row"

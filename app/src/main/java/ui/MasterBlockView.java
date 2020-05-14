@@ -66,7 +66,7 @@ public class MasterBlockView extends FrameLayout {
             return;
         }
 
-        mMaster_content.setSingleLine(true);
+        mMaster_content.setLines(1);
         mMaster_row.setImageResource(R.drawable.live_icon_down);
         status = false;
 
@@ -83,12 +83,13 @@ public class MasterBlockView extends FrameLayout {
 
         int screenWidth = SizeUtils.getScreenWidth(context);
         //计算剩余位置一行文本的宽度
-        int textHolderWidth = screenWidth - 2 * SizeUtils.dip2px(context, 16) - SizeUtils.dip2px(context, (24 + 35));
+        int textHolderWidth = screenWidth - 2 * SizeUtils.dip2px(context, 16) - SizeUtils.dip2px(context, (26 + 35));
 
         LogUtils.i(TAG, "textHolderWidth--------------" + textHolderWidth);
         textPaint.setTextSize(SizeUtils.dip2px(context, 13));
         float desiredWidth = Layout.getDesiredWidth(hostInfo.content, textPaint);
         LogUtils.i(TAG, "desiredWidth--------------" + desiredWidth);
+        final int lines = (int) Math.ceil(desiredWidth / textHolderWidth);
         if (textHolderWidth > desiredWidth) {
             mMaster_row.setVisibility(View.GONE);
         } else {
@@ -101,11 +102,11 @@ public class MasterBlockView extends FrameLayout {
                 public void onClick(View v) {
                     if (status) {
 //                        mMaster_content.setMaxHeight(SizeUtils.dip2px(context, 30));
-                        mMaster_content.setSingleLine(true);
+                        mMaster_content.setLines(1);
                         mMaster_row.setImageResource(R.drawable.live_icon_down);
                     } else {
 //                        mMaster_content.setMaxHeight(SizeUtils.dip2px(context, 300));
-                        mMaster_content.setSingleLine(false);
+                        mMaster_content.setLines(lines);
                         mMaster_row.setImageResource(R.drawable.live_icon_up);
                     }
                     status = !status;
