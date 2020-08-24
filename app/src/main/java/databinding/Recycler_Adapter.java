@@ -63,6 +63,11 @@ public class Recycler_Adapter extends RecyclerView.Adapter {
         return list == null ? 0 : list.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         RecyclerDataItemBinding binding;
 

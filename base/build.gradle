@@ -47,4 +47,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
     compile 'jp.wasabeef:glide-transformations:3.3.0'
+
+    compile 'org.greenrobot:eventbus:3.1.1'
+
 }
+
+

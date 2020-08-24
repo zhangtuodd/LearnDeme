@@ -25,7 +25,7 @@ android {
     }
 
     //导入dataBinding支持
-    dataBinding{
+    dataBinding {
         enabled true
     }
 }
@@ -40,7 +40,6 @@ dependencies {
     api 'com.alibaba:arouter-api:1.2.4'
 
     api 'io.reactivex.rxjava2:rxandroid:2.0.2'
-
 
 
 //    implementation 'com.android.databinding:library:3.1.3'

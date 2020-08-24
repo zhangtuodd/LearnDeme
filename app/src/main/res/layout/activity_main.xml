@@ -25,6 +25,19 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
 
+
+    <LinearLayout
+        android:id="@+id/homepage_notice_ll"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <ViewFlipper
+            android:id="@+id/homepage_notice_vf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
     <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"-->

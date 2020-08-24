@@ -1,46 +1,53 @@
 package com.example.zhangtuo.learndeme;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
+
+import com.example.base.event.OneEvent;
+import com.example.base.util.LogUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //import mvvm.OneActivity;
-import activity.TestCacheActivity;
-import camera_video_record.RecordActivity;
-import camera_video_record.cameraDemo01.CameraTakePictureActivity;
-import camera_video_record.cameraDemo01.Record2Activity;
-import camera_video_record.cameraDemo01.RecordingActivity;
-import mvvm.activity.MainMActivity;
+import activity.FlowLayoutActivity;
+import activity.lifecycle.demo.StartActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
 import takepic.recordvideo.save.db.CustomCameraActivity;
-import takepic.recordvideo.save.db.TakePicRecordActivity;
+import ui.Circle;
+import ui.CircleView;
 import ui.CommonDialog;
-import ui.CycleMoveActivity;
 import ui.HostInfo;
 import ui.MasterBlockView;
-import ui.customview.CustomViewActivity;
 import ui.popupwindow.DeletePupView;
 
 public class MainActivity extends BaseActivity {
@@ -59,6 +66,15 @@ public class MainActivity extends BaseActivity {
     CommonDialog dialog;
     ImageView imageView;
     RelativeLayout relativeLayout;
+    HandlerThread thread;
+    private long starTime;
+    private long endTime;
+    private CircleView circleView;
+
+    private ViewFlipper notice_vf;
+    private int mCurrPos;
+    ArrayList<String> titleList = new ArrayList<String>(); // 上下滚动消息栏内容
+    ArrayList<String> linkUrlArray = new ArrayList<String>(); // 滚动消息栏对应链接
 
 
     private void checkPerm() {
@@ -80,10 +96,11 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(this, CustomCameraActivity.class));
     }
 
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case 101:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     coLaunch();
@@ -95,31 +112,72 @@ public class MainActivity extends BaseActivity {
     }
 
     private MasterBlockView masterBlockView;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+//        endTime = System.currentTimeMillis();
+//        LogUtils.i("aaa", "end------" + endTime);
+//        LogUtils.i("aaa", "cha-------" + (endTime - starTime));
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        starTime = System.currentTimeMillis();
+//        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
-        imageView = (ImageView) findViewById(R.id.iv);
-        recordVideo = findViewById(R.id.recordVideo);
-        masterBlockView = findViewById(R.id.master_view);
-        HostInfo hostInfo = new HostInfo();
-        //赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧现在央视频APP里登录的，不是你刚刚的%s，赶紧切换一下吧
-        hostInfo.content = "公告内容不一样时才更新跑马灯公告内容公告1";//不一"+ new Random().nextInt(100)
-        hostInfo.avatarImg = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
-        masterBlockView.setData(hostInfo, new MasterBlockView.VisibleListener() {
-            @Override
-            public void visibleType(boolean b) {
-                if(b){
-                    masterBlockView.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        recordVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkPerm();
-            }
-        });
+
+        startActivity(new Intent(this, StartActivity.class));
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                EventBus.getDefault().postSticky(new OneEvent("zhangsan"));
+//            }
+//        }.start();
+//
+//
+//        imageView = (ImageView) findViewById(R.id.iv);
+//        recordVideo = findViewById(R.id.recordVideo);
+//        masterBlockView = findViewById(R.id.master_view);
+//        notice_vf = findViewById(R.id.homepage_notice_vf);
+//        HostInfo hostInfo = new HostInfo();
+//        hostInfo.content = "公告内容不一样时才更新跑马灯公告内容公告1<a href=\"http://www.baidu.com\">就在这里</a>";//不一"+ new Random().nextInt(100)
+//        hostInfo.avatarImg = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
+//        masterBlockView.setData(hostInfo, new MasterBlockView.VisibleListener() {
+//            @Override
+//            public void visibleType(boolean b) {
+//                if (b) {
+//                    masterBlockView.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+//        recordVideo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                checkPerm();
+//            }
+//        });
+//
+//
+//        // 滚动消息栏的显示内容
+//        titleList.add("1.4折起 viishow男装专场");
+//        titleList.add("1799!ZUK Z2 性价比无敌了");
+//        titleList.add("蜂蜜的3种美味吃法");
+//        titleList.add("全场包邮 非常大牌");
+//        // 点击进入详情的链接
+//        linkUrlArray.add("http://www.baidu.com");
+//        linkUrlArray.add("http://www.taobao.com");
+//        linkUrlArray.add("http://www.qq.com");
+//        linkUrlArray.add("http://cn.bing.com");
+//        initRollNotice();
 
 //        relativeLayout = findViewById(R.id.rl);
 //
@@ -167,14 +225,14 @@ public class MainActivity extends BaseActivity {
 //                dialog.show();
 //            }
 //        });
-//        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        findViewById(R.id.webView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                MobclickAgent.onEvent(MainActivity.this,"home");
-//                Intent intent = new Intent(MainActivity.this, FlowLayoutActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+                Intent intent = new Intent(MainActivity.this, FlowLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
 //        LinearLayout layout = (LinearLayout) findViewById(R.id.ceshi);
 //
 //        Log.i("chushu", " --- >>> " + 5 / 7);
@@ -195,6 +253,70 @@ public class MainActivity extends BaseActivity {
 
 
     }
+
+    // 上下滚动消息栏
+    private void initRollNotice() {
+
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        moveNext();
+                        Log.d("Task", "下一个");
+                    }
+                });
+
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task, 0, 4000);
+    }
+
+    private void moveNext() {
+        setView(this.mCurrPos, this.mCurrPos + 1);
+        this.notice_vf.setInAnimation(this, R.anim.in_bottomtop);
+        this.notice_vf.setOutAnimation(this, R.anim.out_bottomtop);
+        this.notice_vf.showNext();
+    }
+
+    // 将titleList 文本添加到 textView 中
+    private void setView(int curr, int next) {
+
+        View noticeView = getLayoutInflater().inflate(R.layout.notice_item, null);
+        TextView notice_tv = (TextView) noticeView.findViewById(R.id.notice_tv);
+        if ((curr < next) && (next > (titleList.size() - 1))) {
+            next = 0;
+        } else if ((curr > next) && (next < 0)) {
+            next = titleList.size() - 1;
+        }
+        notice_tv.setText(titleList.get(next));
+
+        Log.e("titleList", notice_tv.getText().toString());
+        // 点击文本跳转到网络链接中
+        notice_tv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+//                Bundle bundle = new Bundle();
+//                bundle.putString("url", linkUrlArray.get(mCurrPos));
+//                bundle.putString("title", titleList.get(mCurrPos));
+//                Intent intent = new Intent(MainActivity.this, BaseWebActivity.class);
+//                intent.putExtras(bundle);
+//                startActivity(intent);
+            }
+        });
+        if (notice_vf.getChildCount() > 1) {
+            notice_vf.removeViewAt(0);
+        }
+        notice_vf.addView(noticeView, notice_vf.getChildCount());
+        mCurrPos = next;
+
+    }
+
 
     public int dp2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -412,6 +534,5 @@ public class MainActivity extends BaseActivity {
 
 
     }
-
 
 }

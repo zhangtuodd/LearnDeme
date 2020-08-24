@@ -4,13 +4,11 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -18,31 +16,29 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <!--获取Activity任务栈 权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
-        android:name="com.example.zhangtuo.learndeme.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/launch"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity android:name="camera_video_record.cameraDemo01.Record2Activity" />
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -51,83 +47,59 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity
-            android:name="com.example.zhangtuo.learndeme.LifeCyclerActivity"
+            android:name=".LifeCyclerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-
-
         <activity android:name="ui.immerse.ImmersedStatusActivity" />
-
         <activity android:name="ui.customview.CustomViewActivity" />
-
         <activity android:name="ui.audiochartview.AudioChartActivity" />
-
         <activity android:name=".PermissionActivity" />
-
-        <activity android:name="com.example.zhangtuo.learndeme.SplashActivity" />
-
+        <activity android:name=".SplashActivity" />
         <activity android:name="activity.PaintViewActivity" />
-
         <activity android:name="activity.ScaleRulerActivity" />
-
         <activity android:name="activity.FlowLayoutActivity" />
-
-        <activity android:name="com.example.zhangtuo.learndeme.WebActivity" />
-
+        <activity android:name=".WebActivity" />
         <activity android:name="databinding.BIndActivity" />
-
         <activity android:name="databinding.BIndActivity2" />
-
         <activity android:name="databinding.BIndActivity3" />
-
         <activity android:name="databinding.BIndActivity4" />
-
         <activity android:name="databinding.BIndActivity5" />
-
         <activity android:name="databinding.BIndActivity6" />
-
         <activity android:name="databinding.BIndActivity7" />
-
         <activity android:name="databinding.BIndActivity8" />
-
         <activity android:name="databinding.BIndActivity9" />
-
         <activity android:name="databinding.BIndActivity10" />
-
         <activity android:name="mvvm.activity.ItemListActivity" />
-
         <activity android:name="mvvm.activity.MainMActivity" />
-
         <activity android:name="mvvm.activity.ItemActivity" />
         <activity android:name="ui.CycleMoveActivity" />
         <activity android:name="activity.TestCacheActivity" />
 
-
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
-
-        <!-- AK鉴权 -->
+            android:process=":remote" /> <!-- AK鉴权 -->
         <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="e3vGBXwHHG1GRSOZGhDKCaqWVNZiy1Wy" />
 
-
         <activity android:name="camera_video_record.cameraDemo01.CameraTakePictureActivity" />
-
         <activity android:name="camera_video_record.cameraDemo01.RecordingActivity" />
-
         <activity android:name="camera_video_record.RecordActivity" />
-
         <activity android:name="takepic.recordvideo.save.db.TakePicRecordActivity" />
-
         <activity android:name="takepic.recordvideo.save.db.CustomCameraActivity" />
 
+        <activity
+            android:name="activity.lifecycle.demo.StartActivity"
+           />
+        <!--android:configChanges="orientation|screenSize"-->
+
+        <activity android:name="activity.lifecycle.demo.AActivity"
+            android:launchMode="standard"/>
     </application>
 
 </manifest>
