@@ -38,6 +38,7 @@ import java.util.TimerTask;
 //import mvvm.OneActivity;
 import activity.FlowLayoutActivity;
 import activity.lifecycle.demo.StartActivity;
+import aspectj.demo.AspectjActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -135,7 +136,7 @@ public class MainActivity extends BaseActivity {
 //        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this, StartActivity.class));
+        startActivity(new Intent(this, AspectjActivity.class));
 //        new Thread() {
 //            @Override
 //            public void run() {
