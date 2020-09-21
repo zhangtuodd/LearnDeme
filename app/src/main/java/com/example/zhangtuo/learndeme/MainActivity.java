@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.os.MessageQueue;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -39,6 +40,9 @@ import java.util.TimerTask;
 import activity.FlowLayoutActivity;
 import activity.lifecycle.demo.StartActivity;
 import aspectj.demo.AspectjActivity;
+import jetpack.lifecycler.LifeCycle2Activity;
+import jetpack.lifecycler.LifeCycleActivity;
+import mvvm.activity.MainMActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -136,7 +140,7 @@ public class MainActivity extends BaseActivity {
 //        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this, AspectjActivity.class));
+        startActivity(new Intent(this, LifeCycle2Activity.class));
 //        new Thread() {
 //            @Override
 //            public void run() {
@@ -255,6 +259,8 @@ public class MainActivity extends BaseActivity {
 
     }
 
+
+
     // 上下滚动消息栏
     private void initRollNotice() {
 
@@ -371,7 +377,7 @@ public class MainActivity extends BaseActivity {
 
   /*      ARouter.getInstance().inject(this);
         SingleInstance instance = SingleInstance.getInstance();
-//        startActivity(new Intent(this, LifeCyclerActivity.class));
+//        startActivity(new Intent(this, LifeCycleActivity.class));
 
         findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
             @Override

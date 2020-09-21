@@ -96,6 +96,8 @@
         <activity
             android:name="activity.lifecycle.demo.AActivity"
             android:launchMode="standard" />
+        <activity android:name="jetpack.lifecycler.LifeCycleActivity" />
+        <activity android:name="jetpack.lifecycler.LifeCycle2Activity" />
     </application>
 
 </manifest>

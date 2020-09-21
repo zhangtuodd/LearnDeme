@@ -1,0 +1,60 @@
+// 创建Thread的公有构造函数，都调用的都是这个私有的init()方法。我们看看到底干什么了。
+/**
+     *
+     * @param 线程组
+     * @param 就是我们平时接触最多的Runnable同学
+     * @param 指定线程的名称
+     * @param 指定线程堆栈的大小
+     */
+private void init(ThreadGroup g, Runnable target, String name, long stackSize) {
+        // 获取当前正在运行的线程
+        // 当前正在运行的线程就是该我们要创建的线程的父线程
+        // 我们要创建的线程会从父线程那继承一些参数过来
+        // 注意哦，此时仍然是在原来的线程，新线程此时还没有创建的哦！
+        Thread parent = currentThread();
+        if (g == null) {
+            g = parent.getThreadGroup();            //如果没有指定ThreadGroup，将获取父线程的TreadGroup
+        }
+
+        g.addUnstarted();                           //将ThreadGroup中的就绪线程计数器增加一。注意，此时线程还并没有被真正加入到ThreadGroup中。
+        this.group = g;                             //将Thread实例的group赋值。从这里开始线程就拥有ThreadGroup了。
+
+        this.target = target;                       //给Thread实例设置Runnable。以后start()的时候执行的就是它了。
+        this.priority = parent.getPriority();       //设置线程的优先权重为父线程的权重
+        this.daemon = parent.isDaemon();            //根据父线程是否是守护线程来确定Thread实例是否是守护线程。
+        setName(name);                              //设置线程的名称
+
+        init2(parent);                              //纳尼？又一个初始化，参数还是父线程。不急，稍后在看。
+
+        /* Stash the specified stack size in case the VM cares */
+        this.stackSize = stackSize;                 //设置线程的堆栈大小
+        tid = nextThreadID();                       //线程的id。这是个静态变量，调用这个方法会自增，然后作为线程的id。
+    }
+
+    //如我们所见，这个方法是加了锁的。原因是避免开发者在其它线程调用同一个Thread实例的这个方法，从而尽量避免抛出异常。
+    //这个方法之所以能够执行我们传入的Runnable里的run()方法，是应为JVM调用了Thread实例的run()方法。
+    public synchronized void start() {
+            //检查线程状态是否为0，为0表示是一个新状态，即还没被start()过。不为0就抛出异常。
+            //就是说，我们一个Thread实例，我们只能调用一次start()方法。
+            if (threadStatus != 0)
+                throw new IllegalThreadStateException();
+
+            //从这里开始才真正的线程加入到ThreadGroup组里。再重复一次，前面只是把nUnstartedThreads这个计数器进行了增量，并没有添加线程。
+            //同时，当线程启动了之后，nUnstartedThreads计数器会-1。因为就绪状态的线程少了一条啊！
+            group.add(this);
+
+            started = false;
+            try {
+                //又是个Native方法。这里交由JVM处理，会调用Thread实例的run()方法。
+                nativeCreate(this, stackSize, daemon);
+                started = true;
+            } finally {
+                try {
+                    if (!started) {
+                        group.threadStartFailed(this);  //如果没有被启动成功，Thread将会被移除ThreadGroup，同时，nUnstartedThreads计数器又增量1了。
+                    }
+                } catch (Throwable ignore) {
+
+                }
+            }
+        }

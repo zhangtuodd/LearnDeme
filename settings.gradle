@@ -1,1 +1,1 @@
-include ':app', ':bilibili', ':base'
+include ':app', ':bilibili', ':base', ':asm_log'

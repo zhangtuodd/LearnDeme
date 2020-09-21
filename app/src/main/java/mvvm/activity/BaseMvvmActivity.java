@@ -45,7 +45,7 @@ public abstract class BaseMvvmActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         getBinder().bind(binding, null);
-        binding.executePendingBindings();
+//        binding.executePendingBindings();
         super.onDestroy();
     }
 
