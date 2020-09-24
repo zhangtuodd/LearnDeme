@@ -47,6 +47,7 @@ dependencies {
 
     api fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.android.support.constraint:constraint-layout:2.0.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     api 'com.alibaba:arouter-api:1.2.4'
 
@@ -58,5 +59,3 @@ dependencies {
 //    annotationProcessor 'com.android.databinding:compiler:3.1.3'
 
 }
-
-

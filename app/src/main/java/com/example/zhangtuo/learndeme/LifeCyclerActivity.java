@@ -43,6 +43,7 @@ public class LifeCyclerActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        int i = 2 / 0;
         Log.d(TAG, "---onResume()---");
 
     }

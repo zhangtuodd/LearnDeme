@@ -1,19 +1,13 @@
 package com.example.zhangtuo.learndeme;
 
 import android.Manifest;
-import android.animation.ObjectAnimator;
-import android.animation.TypeEvaluator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.MessageQueue;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -26,10 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.base.event.OneEvent;
 import com.example.base.util.LogUtils;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -38,25 +29,20 @@ import java.util.TimerTask;
 
 //import mvvm.OneActivity;
 import activity.FlowLayoutActivity;
-import activity.lifecycle.demo.StartActivity;
-import aspectj.demo.AspectjActivity;
-import jetpack.lifecycler.LifeCycle2Activity;
-import jetpack.lifecycler.LifeCycleActivity;
-import mvvm.activity.MainMActivity;
+import contentprovider_sp_ipc.contentprovider_ipc.ContentProviderActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
 import proxy.Star;
 import takepic.recordvideo.save.db.CustomCameraActivity;
-import ui.Circle;
 import ui.CircleView;
 import ui.CommonDialog;
-import ui.HostInfo;
 import ui.MasterBlockView;
 import ui.popupwindow.DeletePupView;
 
 public class MainActivity extends BaseActivity {
 
+    private static final String TAG = "MainActivity";
     DeletePupView pupView;
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     ImageView iv;
@@ -139,8 +125,10 @@ public class MainActivity extends BaseActivity {
 //        starTime = System.currentTimeMillis();
 //        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
+        LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName()+"    context："+getApplication().hashCode()
+        +"///"+getApplicationContext().hashCode()+"///"+this.hashCode());
 
-        startActivity(new Intent(this, LifeCycle2Activity.class));
+        startActivity(new Intent(this, ContentProviderActivity.class));
 //        new Thread() {
 //            @Override
 //            public void run() {
