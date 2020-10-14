@@ -28,8 +28,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 //import mvvm.OneActivity;
+
+import javax.inject.Inject;
+
 import activity.FlowLayoutActivity;
 import contentprovider_sp_ipc.contentprovider_ipc.ContentProviderActivity;
+import dagger.demo.Car;
+import dagger.demo.DaggerMainComponent;
+import dagger.demo.MainComponent;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -67,6 +73,8 @@ public class MainActivity extends BaseActivity {
     ArrayList<String> titleList = new ArrayList<String>(); // 上下滚动消息栏内容
     ArrayList<String> linkUrlArray = new ArrayList<String>(); // 滚动消息栏对应链接
 
+    @Inject
+    Car mCar;
 
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -125,10 +133,26 @@ public class MainActivity extends BaseActivity {
 //        starTime = System.currentTimeMillis();
 //        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
+
+        MainComponent mainComponent = DaggerMainComponent.create();
+        mainComponent.inject(this);
+        LogUtils.e("dagger",mCar.toString());
+
+        findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Thread.sleep(500000);
+                    startActivity(new Intent(MainActivity.this, ContentProviderActivity.class));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName()+"    context："+getApplication().hashCode()
         +"///"+getApplicationContext().hashCode()+"///"+this.hashCode());
 
-        startActivity(new Intent(this, ContentProviderActivity.class));
+//        startActivity(new Intent(this, ContentProviderActivity.class));
 //        new Thread() {
 //            @Override
 //            public void run() {
