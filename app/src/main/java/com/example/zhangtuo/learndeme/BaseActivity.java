@@ -3,6 +3,7 @@ package com.example.zhangtuo.learndeme;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import com.umeng.analytics.MobclickAgent;
 
@@ -15,7 +16,7 @@ import widget.ProgressDialog;
  * @date 2018/3/19
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     private ProgressDialog dialog;
 
     protected Activity mActivity;

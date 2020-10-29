@@ -8,6 +8,7 @@ import com.example.zhangtuo.learndeme.BaseActivity;
 import com.example.zhangtuo.learndeme.R;
 import com.example.zhangtuo.learndeme.databinding.BindActivityLayoutGoods2Binding;
 
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -35,6 +36,14 @@ public class BIndActivity2 extends BaseActivity {
         public void changeGoodsName() {
             goods.getName().set("code" + new Random().nextInt(100));
             goods.getPrice().set(new Random().nextInt(100));
+
+
+            new java.util.LinkedHashMap<Integer, Integer> (10, 0.75f, true) {
+                // 定义put后的移除规则，大于容量就删除eldest
+                protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                    return size() > 10;
+                }
+            };
         }
 
         public void changeGoodsDetails() {

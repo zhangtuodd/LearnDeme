@@ -45,6 +45,7 @@ import ui.CircleView;
 import ui.CommonDialog;
 import ui.MasterBlockView;
 import ui.popupwindow.DeletePupView;
+import xuliehua.MainClass;
 
 public class MainActivity extends BaseActivity {
 
@@ -136,21 +137,31 @@ public class MainActivity extends BaseActivity {
 
         MainComponent mainComponent = DaggerMainComponent.create();
         mainComponent.inject(this);
-        LogUtils.e("dagger",mCar.toString());
+        LogUtils.e("dagger", mCar.toString());
+
+        // 获取当前线程的堆栈
+        for (StackTraceElement i : Thread.currentThread().getStackTrace()) {
+            LogUtils.d("StackTrace1", i.toString());
+        }
+        // 获取当前线程的堆栈
+        LogUtils.d("StackTrace2", Log.getStackTraceString(new Throwable()));
 
         findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Thread.sleep(500000);
-                    startActivity(new Intent(MainActivity.this, ContentProviderActivity.class));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                MainClass mainClass = new MainClass();
+                mainClass.writeObject(MainActivity.this);
+
+//                try {
+//                    Thread.sleep(500000);
+//                    startActivity(new Intent(MainActivity.this, ContentProviderActivity.class));
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
-        LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName()+"    context："+getApplication().hashCode()
-        +"///"+getApplicationContext().hashCode()+"///"+this.hashCode());
+        LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName() + "    context：" + getApplication().hashCode()
+                + "///" + getApplicationContext().hashCode() + "///" + this.hashCode());
 
 //        startActivity(new Intent(this, ContentProviderActivity.class));
 //        new Thread() {
@@ -270,7 +281,6 @@ public class MainActivity extends BaseActivity {
 
 
     }
-
 
 
     // 上下滚动消息栏
