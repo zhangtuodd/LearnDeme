@@ -36,6 +36,7 @@ import contentprovider_sp_ipc.contentprovider_ipc.ContentProviderActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
+import eventbus.EventActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -149,8 +150,9 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainClass mainClass = new MainClass();
-                mainClass.writeObject(MainActivity.this);
+                startActivity(new Intent(MainActivity.this, EventActivity.class));
+//                MainClass mainClass = new MainClass();
+//                mainClass.writeObject(MainActivity.this);
 
 //                try {
 //                    Thread.sleep(500000);

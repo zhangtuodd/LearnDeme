@@ -112,6 +112,7 @@
             android:launchMode="standard" />
         <activity android:name="jetpack.lifecycler.LifeCycleActivity" />
         <activity android:name="jetpack.lifecycler.LifeCycle2Activity" />
+        <activity android:name="eventbus.EventActivity" />
     </application>
 
 </manifest>
