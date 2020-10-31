@@ -1,8 +1,16 @@
 *.iml
 .gradle
+.bugreport-ELE-AL00-HUAWEIELE-AL00-2020-09-27-15-51-29
 /local.properties
-.idea
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+.cxx
+/bugreport-ELE-AL00-HUAWEIELE-AL00-2020-09-27-15-51-29/

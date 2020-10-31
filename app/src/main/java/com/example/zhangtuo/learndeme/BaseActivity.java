@@ -16,7 +16,7 @@ import widget.ProgressDialog;
  * @date 2018/3/19
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends Activity {
     private ProgressDialog dialog;
 
     protected Activity mActivity;

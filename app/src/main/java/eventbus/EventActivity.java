@@ -3,7 +3,9 @@ package eventbus;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.zhangtuo.learndeme.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,8 +33,9 @@ public class EventActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void eventMethod(XEvent event) {
-
+        Toast.makeText(this, "aaa", Toast.LENGTH_SHORT).show();
     }
+
 
     @Override
     protected void onDestroy() {

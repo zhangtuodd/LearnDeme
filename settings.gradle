@@ -1,1 +1,1 @@
-include ':app', ':bilibili', ':base', ':asm_log'
+include ':app', ':bilibili', ':base', ':asm_log', ':annotation', ':annotation_compiler', ':acfun'

@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LearnDeme.iml" filepath="$PROJECT_DIR$/LearnDeme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acfun/acfun.iml" filepath="$PROJECT_DIR$/acfun/acfun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation_compiler/annotation_compiler.iml" filepath="$PROJECT_DIR$/annotation_compiler/annotation_compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/asm_log/asm_log.iml" filepath="$PROJECT_DIR$/asm_log/asm_log.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />

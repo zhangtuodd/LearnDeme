@@ -11,5 +11,6 @@ public class Router {
     /**
      * bilibili 闪屏界面
      */
-    public static final String BILIBILI_SPLASH = "/bilibili/splash";
+    public static final String BILIBILI_TARGET = "/bilibili/target";
+    public static final String ACFUN_ACT = "/acfun/act";
 }

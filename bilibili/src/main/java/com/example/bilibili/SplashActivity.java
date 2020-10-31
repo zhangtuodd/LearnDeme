@@ -9,19 +9,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-
 //import butterknife.BindView;
 //import butterknife.ButterKnife;
 //import butterknife.OnClick;
 //import butterknife.Unbinder;
 
-import static com.example.base.config.Router.BILIBILI_SPLASH;
 
 /**
  * Created by zhangtuo on 2017/11/28.
  */
-@Route(path = BILIBILI_SPLASH)
+
 public class SplashActivity extends Activity {
 
 

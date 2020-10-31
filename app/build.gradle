@@ -45,10 +45,11 @@ android {
 dependencies {
     api project(':base')
     api project(':bilibili')
+    api project(':acfun')
 
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support.constraint:constraint-layout:2.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.3'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     api 'com.alibaba:arouter-api:1.2.4'
 
@@ -63,6 +64,8 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
 
+//    implementation project(path: ':annotation')
+//    annotationProcessor project(path: ':annotation_compiler')
 
 
 //    implementation 'com.android.databinding:library:3.1.3'

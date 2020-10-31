@@ -20,7 +20,7 @@
     <!-- 获取Activity任务栈 权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <uses-permission android:name="haibo.com.PROVIDER"/>
+    <uses-permission android:name="haibo.com.PROVIDER" />
 
 
     <application
@@ -36,8 +36,8 @@
         <provider
             android:name="contentprovider_sp_ipc.contentprovider_ipc.MyContentProvider"
             android:authorities="com.example.zhangtuo.learndeme.MyContentProvider"
-            android:process=":provider"
-            android:permission="haibo.com.PROVIDER"></provider>
+            android:permission="haibo.com.PROVIDER"
+            android:process=":provider"></provider>
         <!--android:readPermission="com.example.zhangtuo.learndeme.read"-->
         <!--android:writePermission="com.example.zhangtuo.learndeme.write"-->
 

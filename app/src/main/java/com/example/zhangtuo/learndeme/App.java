@@ -18,6 +18,7 @@ import com.umeng.commonsdk.UMConfigure;
 import mvvm.BindAdapters;
 import mvvm.ViewModelBinder;
 import widget.ProgressDialog;
+import z_router.MyRouter;
 
 /**
  * Created by zhangtuo on 2017/11/28.
@@ -78,6 +79,10 @@ public class App extends BaseApp {
 
         //mvvm初始化binder
         BindAdapters.setBinder(BindAdapters.viewModelBinder);
+
+
+        //自定义路由框架
+        MyRouter.getInstance().init(this);
     }
 
     public static App getInstance() {

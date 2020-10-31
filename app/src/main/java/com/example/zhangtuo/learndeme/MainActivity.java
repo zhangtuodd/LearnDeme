@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.base.config.Router;
 import com.example.base.util.LogUtils;
 
 import java.io.ByteArrayOutputStream;
@@ -32,11 +34,9 @@ import java.util.TimerTask;
 import javax.inject.Inject;
 
 import activity.FlowLayoutActivity;
-import contentprovider_sp_ipc.contentprovider_ipc.ContentProviderActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
-import eventbus.EventActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -46,7 +46,7 @@ import ui.CircleView;
 import ui.CommonDialog;
 import ui.MasterBlockView;
 import ui.popupwindow.DeletePupView;
-import xuliehua.MainClass;
+import z_router.MyRouter;
 
 public class MainActivity extends BaseActivity {
 
@@ -150,7 +150,12 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, EventActivity.class));
+//                startActivity(new Intent(MainActivity.this, EventActivity.class));
+//                ARouter.getInstance()
+//                        .build(Router.BILIBILI_TARGET)
+//                        .navigation();
+
+                MyRouter.getInstance().jumpActivity(Router.BILIBILI_TARGET, null);
 //                MainClass mainClass = new MainClass();
 //                mainClass.writeObject(MainActivity.this);
 
@@ -358,7 +363,7 @@ public class MainActivity extends BaseActivity {
 //        findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                ARouter.getInstance().build(BILIBILI_SPLASH).navigation();
+//                ARouter.getInstance().build(BILIBILI_TARGET).navigation();
 ////                finish();
 ////                maoPao();
 //                xuanZe();
@@ -406,7 +411,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build(BILIBILI_SPLASH).navigation();
+                ARouter.getInstance().build(BILIBILI_TARGET).navigation();
 //                finish();
 //                maoPao();
                 xuanZe();
