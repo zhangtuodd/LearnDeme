@@ -22,21 +22,21 @@ public class AcFunActivity extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acfun);
-        createMemoryLeak();
-//        handler.sendEmptyMessageDelayed(0, 30);
+//        createMemoryLeak();
+        handler.sendEmptyMessageDelayed(0, 30);
     }
 
-    /**
-     * 反复进入推出act
-     */
-    private void createMemoryLeak() {
-        ImageView imageView = findViewById(R.id.iv);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.common_ic_holder);
-        imageView.setImageBitmap(bitmap);
-
-        CallbackManager.add(this);
-    }
-
+//    /**
+//     * 反复进入推出act
+//     */
+//    private void createMemoryLeak() {
+//        ImageView imageView = findViewById(R.id.iv);
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.common_ic_holder);
+//        imageView.setImageBitmap(bitmap);
+//
+//        CallbackManager.add(this);
+//    }
+//
     @Override
     public void operate() {
         //do sth
@@ -49,15 +49,15 @@ public class AcFunActivity extends AppCompatActivity implements Callback {
 //    }
 
 
-    //    @SuppressLint("HandlerLeak")
-//    private static Handler handler = new Handler() {
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            for (int i = 0; i < 100; i++) {
-//                String[] a = new String[100000];
-//            }
-//            handler.sendEmptyMessageDelayed(0, 30);
-//        }
-//    };
+        @SuppressLint("HandlerLeak")
+    private static Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            for (int i = 0; i < 100; i++) {
+                String[] a = new String[100000];
+            }
+            handler.sendEmptyMessageDelayed(0, 30);
+        }
+    };
 }

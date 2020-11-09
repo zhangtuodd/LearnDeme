@@ -11,6 +11,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.SDKInitializer;
 import com.example.base.BaseApp;
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -46,6 +47,8 @@ public class App extends BaseApp {
                 this,
                 "5b7a5a1cb27b0a666a00036a",
                 "Umeng", UMConfigure.DEVICE_TYPE_PHONE, null);
+
+
     }
 
     /*
@@ -70,6 +73,13 @@ public class App extends BaseApp {
         };
         //x5初始化（sdk内部考虑了冷启动耗时，有异步优化）
         QbSdk.initX5Environment(getApplicationContext(), cb);
+
+
+        // 判断当前进程是否为LeakCanary进程，该进程运行一个HeapAnalyzerService服务
+        // 如果不是，则初始化LeakCanary进程
+//        if (! LeakCanary.isInAnalyzerProcess(this)) {
+//            LeakCanary.install(this);
+//        }
     }
 
     private void init() {

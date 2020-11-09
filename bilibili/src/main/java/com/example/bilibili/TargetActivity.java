@@ -2,6 +2,7 @@ package com.example.bilibili;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Choreographer;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -27,6 +28,15 @@ public class TargetActivity extends AppCompatActivity {
 //                        .build(Router.ACFUN_ACT)
 //                        .navigation();
                 MyRouter.getInstance().jumpActivity(Router.ACFUN_ACT, null);
+            }
+        });
+
+
+        Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
+            @Override
+            public void doFrame(long frameTimeNanos) {
+
+
             }
         });
     }
