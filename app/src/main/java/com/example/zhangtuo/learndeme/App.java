@@ -2,16 +2,18 @@ package com.example.zhangtuo.learndeme;
 
 import android.app.Application;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.ViewDataBinding;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.SDKInitializer;
 import com.example.base.BaseApp;
-import com.squareup.leakcanary.LeakCanary;
+//import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -29,6 +31,18 @@ public class App extends BaseApp {
 
     public static App mInstance;
     public static Handler mHandler = new Handler(Looper.getMainLooper());
+
+
+    @Override
+    public Context getApplicationContext() {
+        return this;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     public void onCreate() {

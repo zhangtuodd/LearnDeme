@@ -33,27 +33,42 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.android.support:appcompat-v7:28.0.0'   //    compile 'com.jakewharton:butterknife:8.5.1'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     //    compile 'com.alibaba:arouter-api:1.2.4'
     //    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
-    compile 'com.zt.maven.widget:refreshview:1.0.2'
-    compile 'xyz.zpayh:hdimageview:1.0.2'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+
+    api ('com.zt.maven.widget:refreshview:1.0.2'){
+        exclude group: 'com.android.support'
+    }
+
+    api ('xyz.zpayh:hdimageview:1.0.2'){
+        exclude group: 'com.android.support'
+    }
     implementation files('libs/umeng-analytics-7.5.3.jar')
     implementation files('libs/umeng-common-1.5.3.jar')
 
     //Glide
-    compile 'com.github.bumptech.glide:glide:4.7.1'
+    api ('com.github.bumptech.glide:glide:4.7.1'){
+        exclude group: 'com.android.support'
+    }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
-    compile 'jp.wasabeef:glide-transformations:3.3.0'
+    api 'jp.wasabeef:glide-transformations:3.3.0'
 
-    compile 'org.greenrobot:eventbus:3.1.1'
+    api 'org.greenrobot:eventbus:3.1.1'
 
-    debugApi 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    debugApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    // Optional, if you use support library fragments:
-    debugApi 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+//    debugApi ('com.squareup.leakcanary:leakcanary-android:1.6.3'){
+//        exclude group: 'com.android.support'
+//    }
+//    debugApi ('com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'){
+//        exclude group: 'com.android.support'
+//    }
+//    // Optional, if you use support library fragments:
+//    debugApi ('com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'){
+//        exclude group: 'com.android.support'
+//    }
 
 }
 

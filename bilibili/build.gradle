@@ -35,10 +35,12 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.3'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':base')
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':base')
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
-    implementation 'com.alibaba:arouter-api:1.2.4'
+    implementation ('com.alibaba:arouter-api:1.2.4'){
+        exclude group: 'com.android.support'
+    }
 
     annotationProcessor project(path: ':annotation_compiler')
     implementation project(path: ':annotation')
