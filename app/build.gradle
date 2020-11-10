@@ -1,6 +1,19 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
 
+apply plugin: 'asm.log.plugin'
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url '../asm_lifecycle_repo' }
+    }
+    dependencies {
+        //加载自定义插件 group + module + version
+        classpath 'zt.asm.plugin:asm_log_plugin:1.0.0'
+    }
+}
+
 
 android {
     compileSdkVersion 28
@@ -27,6 +40,10 @@ android {
     }
     buildTypes {
         release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

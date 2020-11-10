@@ -1,0 +1,13 @@
+首次创建android library 的module，将module中的配置添加完成后，这时sync会失败，因为我们删除了一些文件（只保留了src下的main[groovy¥java]以及覆盖后build.gradle）
+需要去删除项目的.idea文件，清缓存重启后就能构建成功。
+
+配置文件 asm.log.plugin 是插件名称
+文件中的内容就是我们自定义插件名称，app就是依赖此插件
+
+******注意****
+resources下是两级目录，必须先新建META-INF，在建gradle-plugins
+
+如何执行插件：sync - 右侧gradle - 对应插件 - upload - uploadArchives
+
+./gradlew clean assembledebug 也能生成"== LifeCycle Plugin gradle Plugin" 但是会build filed，查找无结果可以尝试release，这个没问题
+./gradlew clean assembleRelease
