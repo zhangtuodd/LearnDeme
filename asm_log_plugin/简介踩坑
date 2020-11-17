@@ -11,3 +11,5 @@ resources下是两级目录，必须先新建META-INF，在建gradle-plugins
 
 ./gradlew clean assembledebug 也能生成"== LifeCycle Plugin gradle Plugin" 但是会build filed，查找无结果可以尝试release，这个没问题
 ./gradlew clean assembleRelease
+
+如果不想从头创建自定义gradle插件，可以利用三方的gradle插件 如：hiBeaver

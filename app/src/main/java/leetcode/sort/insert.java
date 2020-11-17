@@ -24,18 +24,41 @@ public class insert {
     private static void sort(int[] array) {
         if (array.length > 1) {
 
-            int temp = 0;
-            int j = 0;
+//            int temp = 0;
+
             for (int i = 1; i < array.length; i++) {
+                // 记录要插入的数据
+                int tmp = array[i];
 
-                temp = array[i];//记录插入值
-
-
-                for (j = i; j > 0 && array[j - 1] > temp; j--) {//前值大于后值
-                    array[j] = array[j - 1];//将前值赋予后值
+                // 从已经排序的序列最右边的开始比较，找到比其小的数
+                int j = i;
+                while (j > 0 && tmp < array[j - 1]) {
+                    array[j] = array[j - 1];
+                    j--;
                 }
 
-                array[j] = temp;//将记录值赋值到结束位置
+                // 存在比其小的数，插入
+                if (j != i) {
+                    array[j] = tmp;
+                }
+
+//                temp = array[i];//记录插入值
+//                int j = i;
+//                while (j > 0 && temp < array[j - 1]) {
+//
+//                    j--;
+//                }
+//                if (j != i){
+//                    array[i] = array[j];
+//                    array[j] = temp;
+//                }
+
+
+//                for (j = i; j > 0 && array[j - 1] > temp; j--) {//前值大于后值
+//                    array[j] = array[j - 1];//将前值赋予后值
+//                }
+//
+//                array[j] = temp;//将记录值赋值到结束位置
 
                 System.out.println("过程array:" + Arrays.toString(array));
 
