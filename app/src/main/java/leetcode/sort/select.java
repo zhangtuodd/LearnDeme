@@ -6,10 +6,28 @@ import java.util.Arrays;
 public class select {
 
     public static void main(String[] args) {
-        int[] array = {5, 8, 6, 3, 9, 2, 1, 7};
+        int[] array = {5, 8, 6, 3, 9, 2, 1, 7, 1, 8};
         System.out.println("原始array:" + Arrays.toString(array));
-        sort1(array);
+        sort3(array);
         System.out.println("排后array:" + Arrays.toString(array));
+    }
+
+    private static void sort3(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        int temp;
+        for (int i = 0; i < array.length - 1; i++) {
+
+            for (int j = i; j < array.length - 1; j++) {
+                if (array[i] > array[j + 1]) {
+                    temp = array[j + 1];
+                    array[j + 1] = array[i];
+                    array[i] = temp;
+                }
+            }
+        }
+
     }
 
     /**
@@ -44,7 +62,8 @@ public class select {
      * 选择排序
      * 每一轮找出排序元素的最小值以及最小值的位置 和 最大值以及最大值位置
      * 找出后将最小值位置和当前轮比对的首位的值做交换，最大值和末位值做交换
-     *  垃圾方案
+     * 垃圾方案
+     *
      * @param array
      */
     private static void sort1(int[] array) {
@@ -93,6 +112,7 @@ public class select {
 
     /**
      * 垃圾方案
+     *
      * @param arr
      */
     public static void sort2(int[] arr) {

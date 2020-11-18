@@ -6,8 +6,44 @@ public class insert {
     public static void main(String[] args) {
         int[] array = {5, 8, 6, 3, 9, 2, 1, 1, 7};
         System.out.println("原始array:" + Arrays.toString(array));
-        sort(array);
+        sort3(array);
         System.out.println("排后array:" + Arrays.toString(array));
+    }
+
+    private static void sort3(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        int index;
+        int temp;
+        for (int i = 0; i < array.length - 1; i++) {
+            index = i;
+            while (index >= 0 && array[index] > array[index + 1]) {
+                temp = array[index + 1];
+                array[index + 1] = array[index];
+                array[index] = temp;
+                index = index - 1;
+            }
+        }
+
+
+    }
+
+    private static void sort2(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        int temp;
+        int data;
+        for (int i = 0; i < array.length - 1; i++) {
+            temp = i;
+            while (temp >= 0 && array[temp] > array[temp + 1]) {
+                data = array[temp + 1];
+                array[temp + 1] = array[temp];
+                array[i] = data;
+                temp = temp - 1;
+            }
+        }
     }
 
 

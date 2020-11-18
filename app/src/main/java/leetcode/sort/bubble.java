@@ -14,8 +14,39 @@ import java.util.Arrays;
 public class bubble {
     public static void main(String[] args) {
         int[] array = {5, 8, 6, 3, 9, 2, 1, 1, 7};
-        sort(array);
+        sort4(array);
         System.out.printf("array:" + Arrays.toString(array));
+    }
+
+    private static void sort4(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        int temp;
+        int lastExchangeIndex = 0;
+        int sortBorder = array.length - 1;
+        for (int i = 0; i < array.length - 1; i++) {
+
+            boolean isSorted = true;
+            for (int j = 0; j < sortBorder; j++) {
+
+                if (array[j] > array[j + 1]) {
+                    temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+
+                    isSorted = false;
+                    lastExchangeIndex = j;
+                }
+            }
+
+            sortBorder = lastExchangeIndex;
+
+            if (isSorted) {
+                break;
+            }
+        }
+
     }
 
     /**
@@ -110,9 +141,47 @@ public class bubble {
     }
 
     /**
-     * 鸡尾酒排序法，
+     * @param array
      */
-    public static void sort3() {
+    public static void sort3(int[] array) {
+        //虽然每一轮会排出一个最大值，但是有可能有可能最大值前的几个也已经排好序了，
+        // 借助是否交换确定排好序的数组位置
+        int border = array.length - 1;
+        int lastExchangeIndex = 0;
+
+
+        //最后一轮可以不用比较：因此array.length-1
+        for (int i = 0; i < array.length; i++) {
+
+            //如果内循环没发生一次位置交换，说明已经排好序了，无需再循环
+            boolean isSorted = true;
+
+            //内存每一次循环最右端都是最大值，因此也不用比较，因此array.length - i
+//            for (int j = 0; j < array.length - i - 1; j++) {
+//                if (array[j] > array[j + 1]) {
+//                    int temp = array[j];
+//                    array[j] = array[j + 1];
+//                    array[j + 1] = temp;
+//                    isSorted = false;
+//                }
+//            }
+
+            for (int j = 0; j < border; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    isSorted = false;
+                    lastExchangeIndex = j;
+                }
+            }
+
+            border = lastExchangeIndex;
+
+            if (isSorted) {
+                break;
+            }
+        }
 
     }
 
