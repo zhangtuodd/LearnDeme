@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Choreographer;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.config.Router;
@@ -16,18 +17,28 @@ import z_router.MyRouter;
 @BindPath(path = Router.BILIBILI_TARGET)
 public class TargetActivity extends AppCompatActivity {
 
+
+    @Autowired
+    int age;
+
+    @Autowired
+    String name;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_target);
 
+        ARouter.getInstance().inject(this);
+
         findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ARouter.getInstance()
-//                        .build(Router.ACFUN_ACT)
-//                        .navigation();
-                MyRouter.getInstance().jumpActivity(Router.ACFUN_ACT, null);
+                ARouter.getInstance()
+                        .build(Router.ACFUN_ACT)
+                        .navigation();
+//                MyRouter.getInstance().jumpActivity(Router.ACFUN_ACT, null);
             }
         });
 

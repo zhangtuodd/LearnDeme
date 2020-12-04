@@ -22,7 +22,7 @@ public class LifeCycleTransform extends Transform {
 
     @Override
     Set<QualifiedContent.Scope> getScopes() {
-        return TransformManager.PROJECT_ONLY
+        return TransformManager.SCOPE_FULL_PROJECT
     }
 
     @Override
@@ -34,18 +34,17 @@ public class LifeCycleTransform extends Transform {
     public void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         //拿到所有的class文件
         Collection<TransformInput> transformInputs = transformInvocation.inputs
-//        TransformOutputProvider outputProvider = transformInvocation.outputProvider
-//        if (outputProvider != null) {
-//            outputProvider.deleteAll()
-//        }
-        System.out.println("transformInputs ----: " + transformInputs.size())
-
+        TransformOutputProvider outputProvider = transformInvocation.outputProvider
+        if (outputProvider != null) {
+            outputProvider.deleteAll()
+        }
 
         transformInputs.each { TransformInput transformInput ->
             // 遍历directoryInputs(文件夹中的class文件) directoryInputs代表着以源码方式参与项目编译的所有目录结构及其目录下的源码文件
             // 比如我们手写的类以及R.class、BuildConfig.class以及MainActivity.class等
             transformInput.directoryInputs.each { DirectoryInput directoryInput ->
                 File dir = directoryInput.file
+                System.out.println("zhangtuo--dir " + dir.length())
                 if (dir) {
                     dir.traverse(type: FileType.FILES, nameFilter: ~/.*\.class/) { File file ->
                         System.out.println("find class: " + file.name)
@@ -68,7 +67,7 @@ public class LifeCycleTransform extends Transform {
                     }
                 }
 
-//                //处理完输入文件后把输出传给下一个文件
+                //处理完输入文件后把输出传给下一个文件
 //                def dest = outputProvider.getContentLocation(directoryInput.name, directoryInput.contentTypes,
 //                        directoryInput.scopes, Format.DIRECTORY)
 //                FileUtils.copyDirectory(directoryInput.file, dest)

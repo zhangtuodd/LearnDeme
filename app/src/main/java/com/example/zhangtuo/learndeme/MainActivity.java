@@ -23,6 +23,8 @@ import android.widget.ViewFlipper;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.config.Router;
 import com.example.base.util.LogUtils;
+import com.zhangyue.we.x2c.X2C;
+import com.zhangyue.we.x2c.ano.Xml;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -45,9 +47,11 @@ import takepic.recordvideo.save.db.CustomCameraActivity;
 import ui.CircleView;
 import ui.CommonDialog;
 import ui.MasterBlockView;
+import ui.OnTouchView;
 import ui.popupwindow.DeletePupView;
 import z_router.MyRouter;
 
+//@Xml(layouts = "activity_main")
 public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
@@ -129,16 +133,48 @@ public class MainActivity extends BaseActivity {
 
     }
 
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        starTime = System.currentTimeMillis();
 //        LogUtils.i("aaa", "start------" + starTime);
         setContentView(R.layout.activity_main);
-
+//        X2C.setContentView(this, R.layout.activity_main);
         MainComponent mainComponent = DaggerMainComponent.create();
         mainComponent.inject(this);
         LogUtils.e("dagger", mCar.toString());
+        OnTouchView tView = findViewById(R.id.ontouch_view);
+        tView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                boolean ret = false;
+                LogUtils.e("zhang", "setOnTouchListener:" + ret + " action:::" + EventUtils.getEvent(event.getAction()));
+                return ret;
+            }
+        });
+
+        tView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtils.e("zhang", "onClick:---------------------");
+
+            }
+        });
+
+//        tView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                LogUtils.e("zhang", "onLongClick:---------------------");
+//                return true;
+//            }
+//        });
 
         // 获取当前线程的堆栈
         for (StackTraceElement i : Thread.currentThread().getStackTrace()) {
@@ -151,11 +187,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(MainActivity.this, EventActivity.class));
-//                ARouter.getInstance()
-//                        .build(Router.BILIBILI_TARGET)
-//                        .navigation();
+                ARouter.getInstance()
+                        .build(Router.BILIBILI_TARGET)
+                        .withInt("age", 11)
+                        .withString("name", "zhangsan")
+                        .navigation();
 
-                MyRouter.getInstance().jumpActivity(Router.BILIBILI_TARGET, null);
+//                MyRouter.getInstance().jumpActivity(Router.BILIBILI_TARGET, null);
 //                MainClass mainClass = new MainClass();
 //                mainClass.writeObject(MainActivity.this);
 

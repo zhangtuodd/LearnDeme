@@ -11,6 +11,8 @@ import com.example.zhangtuo.learndeme.R;
 
 import cache.Person;
 import cache.SoftReferenceCache;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 
 /**
  * @author： zhangtuo
@@ -47,5 +49,16 @@ public class TestCacheActivity extends Activity {
                 System.gc();
             }
         });
+
+        Request request = new Request.Builder()
+                .get()
+                .url("https:www.baidu.com")
+                .build();
+        OkHttpClient client = new OkHttpClient();
+
+//        client.newCall(request).execute()
+//        client.newCall(request).enqueue();
+
+
     }
 }

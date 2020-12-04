@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ui.OnTouchView
+        android:id="@+id/ontouch_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/bangumi_badge_gary"
+        android:clickable="true" />
+
     <ImageView
         android:id="@+id/iv"
         android:layout_width="wrap_content"

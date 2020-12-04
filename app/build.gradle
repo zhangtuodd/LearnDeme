@@ -1,18 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'asm.log.plugin'
+
 apply plugin: 'android-aspectjx'
 
-//apply plugin: 'asm.log.plugin'
-//buildscript {
-//    repositories {
-//        google()
-//        jcenter()
-//        maven { url '../asm_lifecycle_repo' }
-//    }
-//    dependencies {
-//        //加载自定义插件 group + module + version
-//        classpath 'zt.asm.plugin:asm_log_plugin:1.0.0'
-//    }
-//}
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url '../asm_lifecycle_repo' }
+    }
+    dependencies {
+        //加载自定义插件 group + module + version
+        classpath 'zt.asm.plugin:asm_log_plugin:1.0.0'
+    }
+}
 
 
 android {
@@ -94,6 +95,12 @@ dependencies {
 
 //    implementation project(path: ':annotation')
 //    annotationProcessor project(path: ':annotation_compiler')
+
+    annotationProcessor 'com.zhangyue.we:x2c-apt:1.1.2'
+    implementation 'com.zhangyue.we:x2c-lib:1.0.6'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
+
 
 
 //    implementation 'com.android.databinding:library:3.1.3'
