@@ -83,6 +83,15 @@ public class MainActivity extends BaseActivity {
     @Inject
     Car mCar;
 
+    /****
+     *
+     *
+     * dev_2提交
+     *
+     *
+     *
+     */
+
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             coLaunch();
