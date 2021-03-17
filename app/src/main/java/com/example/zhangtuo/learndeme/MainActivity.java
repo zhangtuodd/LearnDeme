@@ -36,6 +36,7 @@ import java.util.TimerTask;
 import javax.inject.Inject;
 
 import activity.FlowLayoutActivity;
+import activity.ScaleRulerActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
@@ -164,7 +165,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 LogUtils.e("zhang", "onClick:---------------------");
-
+                Intent intent = new Intent(MainActivity.this, ScaleRulerActivity.class);
+                startActivity(intent);
             }
         });
 

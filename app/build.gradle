@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'asm.log.plugin'
+//apply plugin: 'asm.log.plugin'
 
 apply plugin: 'android-aspectjx'
 
@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         //加载自定义插件 group + module + version
-        classpath 'zt.asm.plugin:asm_log_plugin:1.0.0'
+//        classpath 'zt.asm.plugin:asm_log_plugin:1.0.0'
     }
 }
 
