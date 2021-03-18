@@ -93,6 +93,11 @@ public class MainActivity extends BaseActivity {
      */
 
     /**
+     * dev_2提交。。。。。。
+     */
+
+
+    /**
      * master提交1
      * dev_1提交&push，merge到master，再从master merge到dev2
      * 看分支线效果
@@ -111,6 +116,10 @@ public class MainActivity extends BaseActivity {
 
     /**
      * master提交2。2
+     */
+
+    /**
+     * dev_2提交
      */
 
 
