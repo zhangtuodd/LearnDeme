@@ -109,6 +109,10 @@ public class MainActivity extends BaseActivity {
      * master提交2。1
      */
 
+    /**
+     * master提交2。2
+     */
+
 
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
