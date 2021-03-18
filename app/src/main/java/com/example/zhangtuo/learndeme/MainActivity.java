@@ -125,6 +125,9 @@ public class MainActivity extends BaseActivity {
     /**
      * 啦啦啦
      */
+    //111111111
+    //222222222
+
 
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
