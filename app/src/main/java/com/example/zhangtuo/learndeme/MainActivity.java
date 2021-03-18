@@ -102,6 +102,10 @@ public class MainActivity extends BaseActivity {
      * dev_1提交 & not push，将master rebase到dev1，（有冲突解决冲突）然后push。然后master通过dev_1分支来拉取代码
      */
 
+    /**
+     * master提交2
+     */
+
 
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
