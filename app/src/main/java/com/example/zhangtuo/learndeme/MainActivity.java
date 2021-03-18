@@ -92,6 +92,17 @@ public class MainActivity extends BaseActivity {
      *
      */
 
+    /**
+     * master提交1
+     * dev_1提交&push，merge到master，再从master merge到dev2
+     * 看分支线效果
+     */
+
+    /**
+     * dev_1提交 & not push，将master rebase到dev1，（有冲突解决冲突）然后push。然后master通过dev_1分支来拉取代码
+     */
+
+
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             coLaunch();
