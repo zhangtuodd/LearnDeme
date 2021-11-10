@@ -83,53 +83,6 @@ public class MainActivity extends BaseActivity {
     @Inject
     Car mCar;
 
-    /****
-     *
-     *
-     * dev_2提交
-     *
-     *
-     *
-     */
-
-    /**
-     * dev_2提交。。。。。。
-     */
-
-
-    /**
-     * master提交1
-     * dev_1提交&push，merge到master，再从master merge到dev2
-     * 看分支线效果
-     */
-
-    /**
-     * dev_1提交 & not push，将master rebase到dev1，（有冲突解决冲突）然后push。然后master通过dev_1分支来拉取代码
-     */
-
-    /**
-     * master提交2
-     */
-    /**
-     * master提交2。1
-     */
-
-    /**
-     * master提交2。2
-     */
-    //.....
-
-    /**
-     * dev_2提交
-     */
-    /**
-     * 啦啦啦
-     */
-    //33333
-    //111111111
-    //222222222
-
-
     private void checkPerm() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             coLaunch();
@@ -232,6 +185,12 @@ public class MainActivity extends BaseActivity {
         // 获取当前线程的堆栈
         LogUtils.d("StackTrace2", Log.getStackTraceString(new Throwable()));
 
+        findViewById(R.id.scrollLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ScrollActivity.class));
+            }
+        });
         findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
