@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 //apply plugin: 'asm.log.plugin'
 
 apply plugin: 'android-aspectjx'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 buildscript {
     repositories {
