@@ -24,13 +24,13 @@
         数据 - adapter - 竖布局 - 多条目
         viewmodel 配合 @BindingAdapter实现
         -->
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             bind:items="@{vm.itemVms}"
             bind:verticle="@{true}">
 
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 </layout>

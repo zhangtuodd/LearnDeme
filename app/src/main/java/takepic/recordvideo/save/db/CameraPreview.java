@@ -11,7 +11,7 @@ import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;

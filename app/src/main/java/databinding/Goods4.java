@@ -1,6 +1,6 @@
 package databinding;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 /**
  * 双向绑定书记

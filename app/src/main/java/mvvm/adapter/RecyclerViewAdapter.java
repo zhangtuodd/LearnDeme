@@ -1,13 +1,13 @@
 package mvvm.adapter;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zhangtuo.learndeme.R;
 
@@ -29,7 +29,7 @@ import mvvm.vm.ItemViewModel;
  * @date 2018/10/16
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.DataBindingViewHolder> {
 
     private List<ItemViewModel> viewModels = new ArrayList<>();
     private Observable<List<ItemViewModel>> source;
@@ -40,29 +40,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
     public RecyclerViewAdapter(Observable<List<ItemViewModel>> items, ViewModelBinder defaultBinder) {
         this.defaultBinder = defaultBinder;
-        source = items.observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(new Consumer<List<ItemViewModel>>() {
-                    @Override
-                    public void accept(List<ItemViewModel> itemViewModels) throws Exception {
-                        viewModels = itemViewModels != null ? itemViewModels : new ArrayList<ItemViewModel>();
-                        notifyDataSetChanged();
-                    }
-                }).share();
+        source = items.observeOn(AndroidSchedulers.mainThread()).doOnNext(new Consumer<List<ItemViewModel>>() {
+            @Override
+            public void accept(List<ItemViewModel> itemViewModels) throws Exception {
+                viewModels = itemViewModels != null ? itemViewModels : new ArrayList<ItemViewModel>();
+                notifyDataSetChanged();
+            }
+        }).share();
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DataBindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item, parent, false);
         return new DataBindingViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof DataBindingViewHolder) {
-            DataBindingViewHolder viewHolder = (DataBindingViewHolder) holder;
-            defaultBinder.bind(viewHolder.binding, viewModels.get(position));
-            viewHolder.binding.executePendingBindings();
-        }
+    public void onBindViewHolder(DataBindingViewHolder holder, int position) {
+        defaultBinder.bind(holder.binding, viewModels.get(position));
+        holder.binding.executePendingBindings();
 
     }
 
@@ -72,13 +68,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onViewRecycled(RecyclerView.ViewHolder holder1) {
-        super.onViewRecycled(holder1);
-        if (holder1 instanceof DataBindingViewHolder) {
-            DataBindingViewHolder holder = (DataBindingViewHolder) holder1;
-            defaultBinder.bind(holder.binding, null);
-            holder.binding.executePendingBindings();
-        }
+    public void onViewRecycled(@NonNull DataBindingViewHolder holder) {
+        super.onViewRecycled(holder);
+        defaultBinder.bind(holder.binding, null);
+        holder.binding.executePendingBindings();
     }
 
     @Override
@@ -98,7 +91,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
 
-    private class DataBindingViewHolder extends RecyclerView.ViewHolder {
+    class DataBindingViewHolder extends RecyclerView.ViewHolder {
         public ViewDataBinding binding;
 
         public DataBindingViewHolder(ViewDataBinding binding) {

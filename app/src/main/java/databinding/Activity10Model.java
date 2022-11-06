@@ -1,8 +1,8 @@
 package databinding;
 
 import android.content.Context;
-import android.databinding.BindingAdapter;
-import android.databinding.ObservableArrayList;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.ObservableArrayList;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;

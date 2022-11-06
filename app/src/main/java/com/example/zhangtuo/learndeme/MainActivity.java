@@ -8,8 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.config.Router;
@@ -151,6 +153,15 @@ public class MainActivity extends BaseActivity {
         MainComponent mainComponent = DaggerMainComponent.create();
         mainComponent.inject(this);
         LogUtils.e("dagger", mCar.toString());
+        ArrayMap<String,String> map = new ArrayMap<>();
+
+        findViewById(R.id.arraymap_put).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                map.put("nan","nan1");
+            }
+        });
+
         OnTouchView tView = findViewById(R.id.ontouch_view);
         tView.setOnTouchListener(new View.OnTouchListener() {
             @Override

@@ -1,7 +1,7 @@
 package databinding;
 
-import android.databinding.ObservableField;
-import android.databinding.ObservableFloat;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableFloat;
 
 /**
  * 数据单向绑定：方式2

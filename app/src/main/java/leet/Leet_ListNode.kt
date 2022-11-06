@@ -15,21 +15,34 @@ package leet
 internal object Leet_ListNode {
     @JvmStatic
     fun main(args: Array<String>) {
-        //删除链表中的某一部分
-        val head = ListNode("a")
-        val node1 = ListNode("b")
-        val node2 = ListNode("c")
-        val node3 = ListNode("d")
-        val node4 = ListNode("e")
-        val node5 = ListNode("f")
+//        //删除链表中的某一部分
+//        val head = ListNode("a")
+//        val node1 = ListNode("b")
+//        val node2 = ListNode("c")
+//        val node3 = ListNode("d")
+//        val node4 = ListNode("e")
+//        val node5 = ListNode("f")
+//
+//        head.next = node1
+//        node1.next = node2
+//        node2.next = node3
+//        node3.next = node4
+//        node4.next = node5
+//        node5.next = null
+//        delSomeOneInListNode(head,node2)
 
-        head.next = node1
-        node1.next = node2
-        node2.next = node3
-        node3.next = node4
-        node4.next = node5
-        node5.next = null
-        delSomeOneInListNode(head,node2)
+        val list: MutableList<String> = ArrayList()
+        list.add("沉默王二")
+        list.add("沉默王三")
+        list.add("一个文章真特么有趣的程序员")
+        for (i in 0 until list.size) {
+            val str = list[i]
+            if ("沉默王二" == str) {
+                list.remove(str)
+            }
+        }
+        System.out.println(list.toString())
+
 
         //反转全链表
 //        reverseListNode(initListNode())
@@ -49,12 +62,12 @@ internal object Leet_ListNode {
     /**
      * 删除链表中的某个元素并输出新链表
      */
-    fun delSomeOneInListNode(head: ListNode?,delNode: ListNode?){
+    fun delSomeOneInListNode(head: ListNode?, delNode: ListNode?) {
         var curr = head
         var temp = head
-        while (curr != null){
+        while (curr != null) {
             temp = curr.next
-            if (temp == delNode && delNode != null){
+            if (temp == delNode && delNode != null) {
                 curr.next = delNode.next
                 break
             }

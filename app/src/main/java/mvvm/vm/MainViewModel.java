@@ -1,7 +1,7 @@
 package mvvm.vm;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import io.reactivex.functions.Action;
 import mvvm.Navigator;

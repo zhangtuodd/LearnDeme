@@ -1,11 +1,13 @@
 package jetpack.lifecycler;
 
 import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
 
 public class LifeCycle2Activity extends Activity implements LifecycleOwner {
 
@@ -15,7 +17,7 @@ public class LifeCycle2Activity extends Activity implements LifecycleOwner {
     protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         lifecycleRegistry = new LifecycleRegistry(this);
-        getLifecycle().addObserver(new MyObserver());
+        getLifecycle().addObserver((LifecycleObserver) new MyObserver());
         lifecycleRegistry.markState(Lifecycle.State.CREATED);
 
     }

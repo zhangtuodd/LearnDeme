@@ -1,7 +1,8 @@
 package ui.automatic_recycler;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 

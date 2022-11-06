@@ -1,6 +1,7 @@
 package mvvm;
 
-import android.databinding.ViewDataBinding;
+
+import androidx.databinding.ViewDataBinding;
 
 import mvvm.vm.ViewModel;
 

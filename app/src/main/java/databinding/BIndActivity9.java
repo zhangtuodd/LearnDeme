@@ -1,9 +1,9 @@
 package databinding;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.zhangtuo.learndeme.BaseActivity;
 import com.example.zhangtuo.learndeme.R;

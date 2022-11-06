@@ -1,6 +1,6 @@
 package mvvm.vm;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.widget.Toast;
 
 import com.example.zhangtuo.learndeme.App;

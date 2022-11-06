@@ -1,6 +1,6 @@
 package mvvm.activity;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.zhangtuo.learndeme.R;
 

@@ -1,3 +1,6 @@
+repositories {
+    google()
+}
 apply plugin: 'com.android.application'
 //apply plugin: 'asm.log.plugin'
 
@@ -18,13 +21,14 @@ buildscript {
 
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    def versions = rootProject.ext.android
+    compileSdkVersion versions.compileSdkVersion
+//    buildToolsVersion versions.buildToolsVersion
     defaultConfig {
         applicationId "com.example.zhangtuo.learndeme"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.versionCode
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -67,40 +71,41 @@ android {
 
 
 dependencies {
+    def dependencies = rootProject.ext.dependencies
     api project(':base')
     api project(':bilibili')
     api project(':acfun')
 
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    annotationProcessor dependencies.arouter_compiler
 
-    api ('com.alibaba:arouter-api:1.2.4'){
+    api (dependencies.arouter_api){
         exclude group: 'com.android.support'
     }
 
-    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    api dependencies.rxandroid
 
 
-    implementation 'com.google.dagger:dagger:2.19'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.19'
+    implementation dependencies.dagger
+    annotationProcessor dependencies.dagger_compiler
 
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation dependencies.gson
 
-    implementation 'org.greenrobot:eventbus:3.1.1'
-    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
+    implementation dependencies.eventbus
+    annotationProcessor dependencies.eventbus_annotation_processor
 
 
     //添加此行
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation dependencies.multidex
 
 //    implementation project(path: ':annotation')
 //    annotationProcessor project(path: ':annotation_compiler')
 
-    annotationProcessor 'com.zhangyue.we:x2c-apt:1.1.2'
-    implementation 'com.zhangyue.we:x2c-lib:1.0.6'
+    annotationProcessor dependencies.x2c_apt
+    implementation dependencies.x2c_lib
 
-    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
+    implementation dependencies.okhttp
 
 
 

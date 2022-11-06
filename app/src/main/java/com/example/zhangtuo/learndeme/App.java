@@ -1,13 +1,13 @@
 package com.example.zhangtuo.learndeme;
 
 import android.app.Application;
-import android.arch.lifecycle.ViewModel;
 import android.content.Context;
-import android.databinding.BindingAdapter;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.ViewDataBinding;
+import androidx.multidex.MultiDex;
+
 import android.os.Handler;
 import android.os.Looper;
-import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;

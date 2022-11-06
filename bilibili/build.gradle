@@ -1,15 +1,17 @@
+repositories {
+    google()
+}
 apply plugin: 'com.android.library'
 //apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
-
-
+    def versions = rootProject.ext.android
+    compileSdkVersion versions.compileSdkVersion
+//    buildToolsVersion versions.buildToolsVersion
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.versionCode
         versionName "1.0"
 
         javaCompileOptions {
@@ -34,11 +36,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:2.0.3'
+    def dependencies = rootProject.ext.dependencies
+    implementation dependencies.constraint_layout
     api fileTree(dir: 'libs', include: ['*.jar'])
     api project(':base')
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
-    implementation ('com.alibaba:arouter-api:1.2.4'){
+    annotationProcessor dependencies.arouter_compiler
+    implementation (dependencies.arouter_api){
         exclude group: 'com.android.support'
     }
 

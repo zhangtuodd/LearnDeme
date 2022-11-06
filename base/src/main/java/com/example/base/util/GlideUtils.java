@@ -2,8 +2,9 @@ package com.example.base.util;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.widget.ImageView;
+
 
 
 import com.example.base.R;
@@ -110,7 +111,7 @@ public class GlideUtils {
      * @param context
      * @param iv
      * @param url     图片地址
-     * @param dp      圆角半径
+     * @param place      圆角半径
      */
     public static void getCircleByte(Context context, final ImageView iv, byte[] url, int place) {
         GlideApp.with(context)

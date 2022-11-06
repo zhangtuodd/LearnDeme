@@ -1,7 +1,7 @@
 package databinding;
 
-import android.databinding.BaseObservable;
-import android.databinding.ObservableField;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.ObservableField;
 
 /**
  * 描述信息

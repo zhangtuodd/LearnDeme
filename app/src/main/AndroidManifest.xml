@@ -55,7 +55,7 @@
         <activity android:name="camera_video_record.cameraDemo01.Record2Activity" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.zhangtuo.learndeme"
             android:exported="false"
             android:grantUriPermissions="true">

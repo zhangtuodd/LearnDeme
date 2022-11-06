@@ -1,0 +1,66 @@
+ext {
+
+    //Android 支持库已经走到了生命的尽头。28.0 是 Android 支持命名空间的最后一个版本，命名空间不再维护。
+    // 因此，如果您想要以前会进入支持库的错误修复或新功能，您需要迁移到 AndroidX
+    android = [
+            gradle           : "4.2.2",
+            compileSdkVersion: 29,
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            buildToolsVersion: "29.0.3",
+            versionCode      : 1,]
+
+//    version = [supportLibraryVersion: '30.0.3',
+//               constraint_layout    : "2.0.4",
+//               refreshview          : "1.0.2",
+//               hdimageview          : "1.0.2",
+//               glide_glide          : "4.11.0",
+//               glide_compiler       : "4.3.1",
+//               glide_transformations: "3.3.0",
+//               arouter_compiler     : "1.1.4",
+//               arouter_api          : "1.5.2",
+//               butterknife          : "8.5.1",
+//               butterknife_compiler : "8.5.1",
+//               multidex             : "1.0.3",
+//               rxandroid            : "2.0.2",
+//               dagger               : "2.28.3",
+//               dagger_compiler      : "2.19",
+//               x2c_apt              : "1.1.2",
+//               x2c_lib              : "1.0.6",
+//               okhttp               : "4.9.3",]
+
+    dependencies = ["dagger"                       : "com.google.dagger:dagger:2.28.3",
+                    "dagger_compiler"              : "com.google.dagger:dagger-compiler:2.19",
+                    "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:2.0.2",
+
+                    "arouter_compiler"             : "com.alibaba:arouter-compiler:1.1.4",
+                    "arouter_api"                  : "com.alibaba:arouter-api:1.5.2",
+
+                    "eventbus"                     : "org.greenrobot:eventbus:3.1.1",
+                    "eventbus_annotation_processor": "org.greenrobot:eventbus-annotation-processor:3.1.1",
+
+                    "x2c_apt"                      : 'com.zhangyue.we:x2c-apt:1.1.2',
+                    "x2c_lib"                      : "com.zhangyue.we:x2c-lib:1.0.6",
+                    "okhttp"                       : 'com.squareup.okhttp3:okhttp:4.9.3',
+
+                    "glide"                        : "com.github.bumptech.glide:glide:4.11.0",
+                    "glide_transformations"        : 'jp.wasabeef:glide-transformations:4.3.0',
+                    "glide_compiler"               : 'com.github.bumptech.glide:compiler:4.11.0',
+
+                    "hdimageview"                  : "xyz.zpayh:hdimageview:1.0.2",
+                    "refreshview"                  : "com.zt.maven.widget:refreshview:1.0.2",
+
+                    "gson"                         : "com.google.code.gson:gson:2.8.9",
+
+                    "appcomtV7"                    : 'androidx.appcompat:appcompat:1.1.0',
+                    "annotation"                   : 'androidx.annotation:annotation:1.1.0',
+                    "recyclerview"                 : "androidx.recyclerview:recyclerview:1.2.1",
+                    "constraint_layout"            : "androidx.constraintlayout:constraintlayout:2.1.4",
+                    "multidex"                     : 'androidx.multidex:multidex:2.0.1'
+//                    "appcomtV7"                    : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+
+//                    "junit"                        : "junit:junit:4.12",
+//                    "runner"                       : "com.android.support.test:runner:1.0.2",
+//                    "espresso_core"                : "com.android.support.test.espresso:espresso-core:3.0.2"
+    ]
+}

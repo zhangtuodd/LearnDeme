@@ -2,7 +2,7 @@ package ui;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;

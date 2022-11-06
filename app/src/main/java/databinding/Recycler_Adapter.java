@@ -1,12 +1,13 @@
 package databinding;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zhangtuo.learndeme.R;
 import com.example.zhangtuo.learndeme.databinding.RecyclerDataItemBinding;
@@ -43,7 +44,7 @@ public class Recycler_Adapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Recycler_Data data = list.get(position);
         if (holder instanceof MyViewHolder) {
             MyViewHolder vh = (MyViewHolder) holder;

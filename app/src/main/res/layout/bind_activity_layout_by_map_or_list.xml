@@ -5,11 +5,11 @@
 
         <variable
             name="list"
-            type="android.databinding.ObservableList&lt;String&gt;" />
+            type="androidx.databinding.ObservableList&lt;String&gt;" />
 
         <variable
             name="map"
-            type="android.databinding.ObservableMap&lt;String,String&gt;" />
+            type="androidx.databinding.ObservableMap&lt;String,String&gt;" />
 
         <variable
             name="index"

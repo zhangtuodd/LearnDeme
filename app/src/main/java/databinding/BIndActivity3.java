@@ -1,12 +1,13 @@
 package databinding;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableArrayMap;
-import android.databinding.ObservableList;
-import android.databinding.ObservableMap;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableArrayMap;
+import androidx.databinding.ObservableList;
+import androidx.databinding.ObservableMap;
+
 import android.view.View;
 
 import com.example.zhangtuo.learndeme.BaseActivity;
@@ -34,7 +35,7 @@ public class BIndActivity3 extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BindActivityLayoutByMapOrListBinding binding = DataBindingUtil.setContentView(this, R.layout.bind_activity_layout_by_map_or_list);
-        map = new ObservableArrayMap<>();
+        map = new ObservableArrayMap<String,String>();
         map.put("name", "zhangsan");
         map.put("age", "22");
         binding.setMap(map);

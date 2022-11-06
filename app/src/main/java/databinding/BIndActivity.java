@@ -1,9 +1,10 @@
 package databinding;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.Observable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.Observable;
+
 import android.util.Log;
 
 import com.example.zhangtuo.learndeme.BR;

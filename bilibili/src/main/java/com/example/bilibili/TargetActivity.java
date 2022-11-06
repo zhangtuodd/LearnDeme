@@ -1,9 +1,10 @@
 package com.example.bilibili;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Choreographer;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;

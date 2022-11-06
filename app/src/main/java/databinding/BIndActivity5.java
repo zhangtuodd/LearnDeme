@@ -1,8 +1,9 @@
 package databinding;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+
 import android.text.Editable;
 import android.widget.Toast;
 

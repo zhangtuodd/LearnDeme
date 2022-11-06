@@ -1,7 +1,8 @@
 package ui.automatic_recycler;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SimpleAdapter extends RecyclerView.Adapter {
     @Override

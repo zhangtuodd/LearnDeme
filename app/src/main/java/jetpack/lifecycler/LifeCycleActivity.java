@@ -1,9 +1,9 @@
 package jetpack.lifecycler;
 
-import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;;
 
 import com.example.base.util.LogUtils;
 
