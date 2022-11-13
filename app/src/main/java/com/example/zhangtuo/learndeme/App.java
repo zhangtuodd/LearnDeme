@@ -18,6 +18,7 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
+import hotfix_coldlaunch.HotFixUtils;
 import mvvm.BindAdapters;
 import mvvm.ViewModelBinder;
 import widget.ProgressDialog;
@@ -48,6 +49,8 @@ public class App extends BaseApp {
     public void onCreate() {
 //        SDKInitializer.initialize(this);
         super.onCreate();
+        //执行热修复
+        HotFixUtils.fixBug(this);
         mInstance = this;
         init();
         initX5();

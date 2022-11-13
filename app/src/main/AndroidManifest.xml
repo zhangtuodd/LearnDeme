@@ -114,6 +114,7 @@
         <activity android:name="jetpack.lifecycler.LifeCycle2Activity" />
         <activity android:name="eventbus.EventActivity" />
         <activity android:name=".ScrollActivity" />
+        <activity android:name="hotfix_coldlaunch.HotFixActivity" />
     </application>
 
 </manifest>

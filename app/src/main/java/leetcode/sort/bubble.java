@@ -1,7 +1,5 @@
 package leetcode.sort;
 
-import android.util.Log;
-
 import java.util.Arrays;
 
 /**

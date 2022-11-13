@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.HandlerThread;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +26,10 @@ import androidx.core.app.ActivityCompat;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.config.Router;
 import com.example.base.util.LogUtils;
-import com.zhangyue.we.x2c.X2C;
-import com.zhangyue.we.x2c.ano.Xml;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,6 +42,7 @@ import activity.ScaleRulerActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
+import hotfix_coldlaunch.HotFixActivity;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -52,7 +53,6 @@ import ui.CommonDialog;
 import ui.MasterBlockView;
 import ui.OnTouchView;
 import ui.popupwindow.DeletePupView;
-import z_router.MyRouter;
 
 //@Xml(layouts = "activity_main")
 public class MainActivity extends BaseActivity {
@@ -152,8 +152,15 @@ public class MainActivity extends BaseActivity {
 //        X2C.setContentView(this, R.layout.activity_main);
         MainComponent mainComponent = DaggerMainComponent.create();
         mainComponent.inject(this);
-        LogUtils.e("dagger", mCar.toString());
+//        LogUtils.e("dagger", mCar.toString());
         ArrayMap<String,String> map = new ArrayMap<>();
+//      new  SparseArray<String>();
+
+        startActivity(new Intent(this, HotFixActivity.class));
+
+//     List<String> l1 = new ArrayList<>();
+//      l1.add(1);
+//      l1.add("ss");
 
         findViewById(R.id.arraymap_put).setOnClickListener(new View.OnClickListener() {
             @Override

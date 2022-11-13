@@ -3,7 +3,6 @@ ext {
     //Android 支持库已经走到了生命的尽头。28.0 是 Android 支持命名空间的最后一个版本，命名空间不再维护。
     // 因此，如果您想要以前会进入支持库的错误修复或新功能，您需要迁移到 AndroidX
     android = [
-            gradle           : "4.2.2",
             compileSdkVersion: 29,
             minSdkVersion    : 21,
             targetSdkVersion : 29,
