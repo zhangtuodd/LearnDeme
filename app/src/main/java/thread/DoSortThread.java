@@ -3,7 +3,7 @@ package thread;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 描述信息
+ * 线程顺序执行
  *
  * @author zhangtuo
  * @date 2022/11/10
