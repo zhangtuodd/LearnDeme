@@ -9,8 +9,8 @@ package l_thread
  */
 object MultiThreadSwapPrint3 {
 
-    val obj = Object()
-    val content = "abcdefg"
+    private val obj = Object()
+    const val content = "abcdefghijklmnopqrst"
 
     @Volatile
     var index = 0
@@ -28,7 +28,12 @@ object MultiThreadSwapPrint3 {
                     obj.notify()
                     print(content[index])
                     index++
-                    obj.wait()
+                    if (index < content.length) {//程序结束时避免wait阻塞
+                        obj.wait()
+                    } else {
+                        return@Thread
+                    }
+
                 }
             }
         }, "ThreadA").start()
@@ -39,7 +44,11 @@ object MultiThreadSwapPrint3 {
                     obj.notify()
                     print(content[index])
                     index++
-                    obj.wait()
+                    if (index < content.length) { //程序结束时避免wait阻塞
+                        obj.wait()
+                    } else {
+                        return@Thread
+                    }
                 }
             }
         }, "ThreadBB").start()
