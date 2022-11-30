@@ -3,21 +3,21 @@ package design_mode.factory
 /**
  * 产品接口
  */
-interface Car {
-    fun produce()
+interface ICar {
+    fun drive()
 }
 
 /**
  * 具体的产品实现
  */
-class BenzCar : Car {
-    override fun produce() {
+class BenzCar : ICar {
+    override fun drive() {
         println("奔驰车")
     }
 }
 
-class BMWCar : Car {
-    override fun produce() {
+class BMWCar : ICar {
+    override fun drive() {
         println("宝马车")
     }
 

@@ -14,11 +14,10 @@ object Test1 {
     @JvmStatic
     fun main(args: Array<String>) {
         val benzCar = Factory.createCar(BENZ_TYPE)
-        benzCar?.produce()
+        benzCar?.drive()
         val bmwCar = Factory.createCar(BMW_TYPE)
-        bmwCar?.produce()
+        bmwCar?.drive()
     }
-
 }
 
 
@@ -26,7 +25,7 @@ object Test1 {
 object Factory {
     const val BMW_TYPE = 1
     const val BENZ_TYPE = 2
-    fun createCar(type: Int): Car? {
+    fun createCar(type: Int): ICar? {
         return if (type == BMW_TYPE) {
             BMWCar()
         } else if (type == BENZ_TYPE) {
