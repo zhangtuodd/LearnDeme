@@ -115,6 +115,8 @@
         <activity android:name="eventbus.EventActivity" />
         <activity android:name=".ScrollActivity" />
         <activity android:name="hotfix_coldlaunch.HotFixActivity" />
+        <activity android:name="android_interview.activity_about.BActivity" />
+        <activity android:name="android_interview.activity_about.AActivity" />
     </application>
 
 </manifest>

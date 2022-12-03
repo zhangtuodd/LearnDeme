@@ -39,6 +39,7 @@ import javax.inject.Inject;
 
 import activity.FlowLayoutActivity;
 import activity.ScaleRulerActivity;
+import android_interview.activity_about.AActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
@@ -156,7 +157,8 @@ public class MainActivity extends BaseActivity {
         ArrayMap<String,String> map = new ArrayMap<>();
 //      new  SparseArray<String>();
 
-        startActivity(new Intent(this, HotFixActivity.class));
+//        startActivity(new Intent(this, HotFixActivity.class));
+        startActivity(new Intent(this, AActivity.class));
 
 //     List<String> l1 = new ArrayList<>();
 //      l1.add(1);
