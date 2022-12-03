@@ -27,8 +27,18 @@ import client.cloudy.com.annotation.BindPath;
 
 /**
  * 获取注解、处理注解（生成代码）
+ *
+ * 生成的代码位置：依赖注解处理器的module的build文件中 （clean-rebuild）
+ * build/generated/ap_generated_sources
  */
 
+/**
+ * 注解处理器在使用前需要先向JVM注册，在module的META-INF目录下新建services目录，并创建一个名为javax.annotation.processing.Processor的文件，
+ * 在此文件内逐行声明注解处理器。同样地，此处需要声明的也是处理器类的完全限定名。
+ *
+ * 另一个简便的方法是使用Google提供的auto-services库，在build.gradle中引入com.google.auto.service:auto-service:1.0-rc2，
+ * 并在处理器类上添加注解@AutoService(Processor.class)，auto-services也是一个注解处理器，会在编译时为该module生成声明文件。
+ */
 @AutoService(Processor.class)
 public class AnnotationCompiler extends AbstractProcessor {
 
@@ -46,12 +56,15 @@ public class AnnotationCompiler extends AbstractProcessor {
      * @return
      */
     @Override
+//    public SourceVersion getSupportedSourceVersion() {
+//        return processingEnv.getSourceVersion();
+//    }
     public SourceVersion getSupportedSourceVersion() {
-        return processingEnv.getSourceVersion();
+        return SourceVersion.latestSupported();
     }
 
     /**
-     * 指定这个注解处理器是注册给哪个注解的，这里说明是注解BindPath
+     * 返回处理器想要处理的注解类型，此处需返回一个包含了所有注解完全限定名的集合。
      *
      * @return
      */
@@ -122,7 +135,7 @@ public class AnnotationCompiler extends AbstractProcessor {
                 String activityKey = iterator.next();
                 String clsName = map.get(activityKey);
                 writer.write("        MyRouter.getInstance().addActivity(");
-                writer.write("\"" + activityKey + "\"," + clsName + ");");
+                writer.write("\"" + activityKey + "\"," + clsName + ");\n");
             }
             writer.write("\n}\n" +
                     "}");

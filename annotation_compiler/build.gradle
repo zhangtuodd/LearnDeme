@@ -5,6 +5,15 @@ dependencies {
 
 
     implementation 'com.google.auto.service:auto-service:1.0-rc4'
+
+    //https://segmentfault.com/q/1010000018927725
+    //Gradle 5.0将忽略compile classpath中的annotation processor，需要手动添加到annotation processor path
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+
+    // javapoet api方式生成java文件
+    implementation 'com.squareup:javapoet:1.11.1'
+
+
     implementation project(path: ':annotation')
 
 }

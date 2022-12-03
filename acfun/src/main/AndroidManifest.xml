@@ -4,6 +4,7 @@
 
     <application>
         <activity android:name=".AcFunActivity"></activity>
+        <activity android:name=".A_AcFunActivity" />
     </application>
 
 </manifest>

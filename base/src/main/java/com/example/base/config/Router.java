@@ -13,4 +13,5 @@ public class Router {
      */
     public static final String BILIBILI_TARGET = "/bilibili/target";
     public static final String ACFUN_ACT = "/acfun/act";
+    public static final String A_ACFUN_ACT = "/acfun/act_a";
 }
