@@ -40,6 +40,8 @@ import javax.inject.Inject;
 import activity.FlowLayoutActivity;
 import activity.ScaleRulerActivity;
 import android_interview.activity_about.AActivity;
+import android_interview.activity_about.PPerson;
+import binder.client.AidlActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
@@ -158,7 +160,8 @@ public class MainActivity extends BaseActivity {
 //      new  SparseArray<String>();
 
 //        startActivity(new Intent(this, HotFixActivity.class));
-        startActivity(new Intent(this, AActivity.class));
+        PPerson.name ="lisi";
+        startActivity(new Intent(this, AidlActivity.class));
 
 //     List<String> l1 = new ArrayList<>();
 //      l1.add(1);

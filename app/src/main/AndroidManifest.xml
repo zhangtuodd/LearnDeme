@@ -117,6 +117,14 @@
         <activity android:name="hotfix_coldlaunch.HotFixActivity" />
         <activity android:name="android_interview.activity_about.BActivity" />
         <activity android:name="android_interview.activity_about.AActivity" />
+        <activity android:name="binder.client.AidlActivity" />
+
+        <service android:name="binder.server.MyService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="binder.server.RomoteMyService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
