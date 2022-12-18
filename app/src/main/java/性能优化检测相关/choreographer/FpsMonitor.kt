@@ -4,6 +4,7 @@ import android.view.Choreographer
 
 /**
  * 帧率统计：一秒多少帧
+ * https://zhuanlan.zhihu.com/p/362334212
  * 
  * 声明变量 count 用于统计回调次数
  * 通过 Choreographer.getInstance().postFrameCallback(Runnable) 注册监听下一次 vsync信号，提交任务，任务回调只做两件事，一是 count++，二是继续注册监听下一次 vsync 信号 。

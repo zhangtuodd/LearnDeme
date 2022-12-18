@@ -1,4 +1,4 @@
-package choreographer
+package 性能优化检测相关.choreographer
 
 import android.content.Context
 import android.os.Build
@@ -8,6 +8,7 @@ import com.example.zhangtuo.learndeme.App
 
 /**
  * 掉帧率统计
+ * https://zhuanlan.zhihu.com/p/362334212
  *
  * 每次需要开始渲染的时候都会回调doFrame()，如果某2次doFrame()之间的时间差大于16.6ms，则说明发生了UI有点卡顿，已经在掉帧了，拿着这个时间差除以16.6就得出掉了多少帧。
  */
