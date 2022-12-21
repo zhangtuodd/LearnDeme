@@ -6,7 +6,7 @@
     <com.example.zhangtuo.learndeme.X5WebView
         android:id="@+id/web_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.example.zhangtuo.learndeme.X5WebView>
+        android:layout_height="300dp"></com.example.zhangtuo.learndeme.X5WebView>
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -16,5 +16,12 @@
         android:max="100"
         android:progress="0"
         android:visibility="gone" />
+
+    <Button
+        android:layout_gravity="bottom"
+        android:text="android call js"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt"/>
 
 </FrameLayout>

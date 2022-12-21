@@ -7,7 +7,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Looper;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.SparseArray;
@@ -40,7 +42,6 @@ import javax.inject.Inject;
 import activity.FlowLayoutActivity;
 import activity.ScaleRulerActivity;
 import android_interview.activity_about.AActivity;
-import android_interview.activity_about.PPerson;
 import binder.client.AidlActivity;
 import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
@@ -56,6 +57,8 @@ import ui.CommonDialog;
 import ui.MasterBlockView;
 import ui.OnTouchView;
 import ui.popupwindow.DeletePupView;
+import webview.WebviewActivity;
+import 性能优化检测相关.卡顿.LooperPrinter;
 
 //@Xml(layouts = "activity_main")
 public class MainActivity extends BaseActivity {
@@ -160,8 +163,8 @@ public class MainActivity extends BaseActivity {
 //      new  SparseArray<String>();
 
 //        startActivity(new Intent(this, HotFixActivity.class));
-        PPerson.name ="lisi";
-        startActivity(new Intent(this, AidlActivity.class));
+//        startActivity(new Intent(this, AidlActivity.class));
+        startActivity(new Intent(this, WebviewActivity.class));
 
 //     List<String> l1 = new ArrayList<>();
 //      l1.add(1);
@@ -175,6 +178,12 @@ public class MainActivity extends BaseActivity {
         });
 
         OnTouchView tView = findViewById(R.id.ontouch_view);
+        tView.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
         tView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

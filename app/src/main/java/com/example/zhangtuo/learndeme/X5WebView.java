@@ -32,6 +32,7 @@ public class X5WebView extends WebView {
         WebSettings webSetting = this.getSettings();
         webSetting.setJavaScriptEnabled(true);
         webSetting.setDomStorageEnabled(true);
+        webSetting.setJavaScriptCanOpenWindowsAutomatically(true);// 设置允许JS弹窗
         webSetting.setCacheMode(WebSettings.LOAD_NO_CACHE);
     }
 

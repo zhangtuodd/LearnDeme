@@ -31,6 +31,9 @@ public class WebActivity extends BaseActivity {
         webView = (X5WebView) findViewById(R.id.web_view);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         webView.loadUrl("http://www.yuedongqc.com/app/index.php?i=2&c=entry&m=xyshopx&do=mobile");
+
+
+
     }
 
 }
