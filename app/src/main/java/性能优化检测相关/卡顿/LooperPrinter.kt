@@ -13,9 +13,9 @@ import com.example.base.util.LogUtils
  */
 class LooperPrinter : Printer {
 
-//    fun test(){
-//        Looper.getMainLooper().setMessageLogging(LooperPrinter())
-//    }
+    fun test(){
+        Looper.getMainLooper().setMessageLogging(LooperPrinter())
+    }
 
     companion object {
         //默认卡顿阈值

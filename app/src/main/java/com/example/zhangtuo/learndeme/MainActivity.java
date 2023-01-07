@@ -24,6 +24,7 @@ import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.config.Router;
@@ -47,6 +48,7 @@ import dagger.demo.Car;
 import dagger.demo.DaggerMainComponent;
 import dagger.demo.MainComponent;
 import hotfix_coldlaunch.HotFixActivity;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import proxy.IStarBehavior;
 import proxy.DynamicProxy;
 import proxy.IStarBehaviorPlus;
@@ -164,7 +166,23 @@ public class MainActivity extends BaseActivity {
 
 //        startActivity(new Intent(this, HotFixActivity.class));
 //        startActivity(new Intent(this, AidlActivity.class));
-        startActivity(new Intent(this, WebviewActivity.class));
+//        startActivity(new Intent(this, WebviewActivity.class));
+
+        LogUtils.e("onCreate---",Thread.currentThread().getName()+"----1");
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                LogUtils.e("onCreate---",Thread.currentThread().getName()+"----2");
+            }
+        }.start();
+        LogUtils.e("onCreate---",Thread.currentThread().getName()+"----3");
+
 
 //     List<String> l1 = new ArrayList<>();
 //      l1.add(1);
@@ -197,7 +215,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 LogUtils.e("zhang", "onClick:---------------------");
-                Intent intent = new Intent(MainActivity.this, ScaleRulerActivity.class);
+//                Intent intent = new Intent(MainActivity.this, ScaleRulerActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewModelActivity.class);
                 startActivity(intent);
             }
         });

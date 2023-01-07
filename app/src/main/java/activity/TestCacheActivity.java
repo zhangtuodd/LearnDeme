@@ -1,6 +1,7 @@
 package activity;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import android.util.Log;
@@ -60,5 +61,15 @@ public class TestCacheActivity extends Activity {
 //        client.newCall(request).enqueue();
 
 
+    }
+
+    @Override
+    public ClassLoader getClassLoader() {
+        return super.getClassLoader();
+    }
+
+    @Override
+    public Resources getResources() {
+        return super.getResources();
     }
 }

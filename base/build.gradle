@@ -65,6 +65,12 @@ dependencies {
     api dependencies.glide_transformations
 
     api dependencies.eventbus
+    api dependencies.kotlinx_coroutines
+    api dependencies.kotlinx_viewmodel
+    api dependencies.kotlinx_lifecycle_runtime
+    api dependencies.kotlinx_livedata
+    api dependencies.fragment_ktx
+    api dependencies.activity_ktx
 
 //    debugApi ('com.squareup.leakcanary:leakcanary-android:1.6.3'){
 //        exclude group: 'com.android.support'

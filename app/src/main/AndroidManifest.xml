@@ -119,6 +119,7 @@
         <activity android:name="android_interview.activity_about.AActivity" />
         <activity android:name="binder.client.AidlActivity" />
         <activity android:name="webview.WebviewActivity" />
+        <activity android:name=".ViewModelActivity" />
 
         <service android:name="binder.server.MyService"
             android:process=":remote">

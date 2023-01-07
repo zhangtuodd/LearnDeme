@@ -33,6 +33,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
+                //参数作用是用于拼接生成 Java 源码的类名 ;
                 arguments = [moduleName: project.getName(),eventBusIndex : "com.example.zhangtuo.learndeme.EventBusIndex"]
             }
         }
@@ -56,6 +57,12 @@ android {
     //导入dataBinding支持
     dataBinding {
         enabled true
+    }
+
+    lint {
+        abortOnError false
+        checkDependencies true
+        checkReleaseBuilds false
     }
 
 }

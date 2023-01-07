@@ -3,7 +3,7 @@ ext {
     //Android 支持库已经走到了生命的尽头。28.0 是 Android 支持命名空间的最后一个版本，命名空间不再维护。
     // 因此，如果您想要以前会进入支持库的错误修复或新功能，您需要迁移到 AndroidX
     android = [
-            compileSdkVersion: 30,
+            compileSdkVersion: 31,
             minSdkVersion    : 21,
             targetSdkVersion : 30,
             buildToolsVersion: "29.0.3",//gradle3.0以上无需再指定 Build Tools 的版本
@@ -55,7 +55,14 @@ ext {
                     "annotation"                   : 'androidx.annotation:annotation:1.1.0',
                     "recyclerview"                 : "androidx.recyclerview:recyclerview:1.2.1",
                     "constraint_layout"            : "androidx.constraintlayout:constraintlayout:2.1.4",
-                    "multidex"                     : 'androidx.multidex:multidex:2.0.1'
+                    "multidex"                     : 'androidx.multidex:multidex:2.0.1',
+                    "kotlinx_coroutines"           : 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1',
+                    "kotlinx_viewmodel"            : 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0',
+                    "kotlinx_lifecycle_runtime"    : 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0',
+                    "kotlinx_livedata"             : 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0',
+//                    "lifecycle_extension"          : 'android.arch.lifecycle:extensions:1.1.1',
+                    "fragment_ktx"                 : 'androidx.fragment:fragment-ktx:1.5.0-alpha03',
+                    "activity_ktx"                : 'androidx.activity:activity-ktx:1.5.0-alpha03',
 //                    "appcomtV7"                    : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
 
 //                    "junit"                        : "junit:junit:4.12",
