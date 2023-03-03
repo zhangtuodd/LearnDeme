@@ -13,7 +13,7 @@ public class quick {
     public static void main(String[] args) {
         int[] array = {5, 0, 6, 3, 9, 2, 1, 1, 7};
         System.out.printf("原始array:" + Arrays.toString(array));
-        sort2(array, 0, array.length - 1);
+        sort(array, 0, array.length - 1);
         System.out.printf("快排array:" + Arrays.toString(array));
     }
 
@@ -143,8 +143,8 @@ public class quick {
         }
         //得到基准元素
         int pivotIndex = partition(array, startIndex, endIndex);
-//        sort(array, startIndex, pivotIndex - 1);
-//        sort(array, pivotIndex + 1, endIndex);
+        sort(array, startIndex, pivotIndex - 1);
+        sort(array, pivotIndex + 1, endIndex);
 
     }
 

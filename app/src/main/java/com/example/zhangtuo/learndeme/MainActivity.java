@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.os.Message;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.SparseArray;
@@ -98,12 +99,7 @@ public class MainActivity extends BaseActivity {
             coLaunch();
 
         } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.CAMERA,
-                            Manifest.permission.RECORD_AUDIO}, 101);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, 101);
         }
     }
 
@@ -161,15 +157,26 @@ public class MainActivity extends BaseActivity {
         MainComponent mainComponent = DaggerMainComponent.create();
         mainComponent.inject(this);
 //        LogUtils.e("dagger", mCar.toString());
-        ArrayMap<String,String> map = new ArrayMap<>();
-//      new  SparseArray<String>();
+        ArrayMap<String, String> map = new ArrayMap<>();
+//        map.put("","")
+        SparseArray<String> sa = new SparseArray<>();
+        sa.put(1, "a");
+        sa.put(1, "b");
+        sa.put(2, "b");
+        for (int i = 0; i < sa.size(); i++) {
+            LogUtils.e("saa", sa.keyAt(i) + "," + sa.valueAt(i));
+        }
+        Toast.makeText(this, "size--:" + sa.size(), Toast.LENGTH_LONG).show();
 
-//        startActivity(new Intent(this, HotFixActivity.class));
+//        mockdoudong();
+
+
+//        startActivity(new Intent(this, CodingActivity1.class));
 //        startActivity(new Intent(this, AidlActivity.class));
 //        startActivity(new Intent(this, WebviewActivity.class));
 
-        LogUtils.e("onCreate---",Thread.currentThread().getName()+"----1");
-        new Thread(){
+        LogUtils.e("onCreate---", Thread.currentThread().getName() + "----1");
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -178,20 +185,21 @@ public class MainActivity extends BaseActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                LogUtils.e("onCreate---",Thread.currentThread().getName()+"----2");
+                LogUtils.e("onCreate---", Thread.currentThread().getName() + "----2");
             }
         }.start();
-        LogUtils.e("onCreate---",Thread.currentThread().getName()+"----3");
+        LogUtils.e("onCreate---", Thread.currentThread().getName() + "----3");
 
 
 //     List<String> l1 = new ArrayList<>();
 //      l1.add(1);
 //      l1.add("ss");
 
-        findViewById(R.id.arraymap_put).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                map.put("nan","nan1");
+//                map.put("nan","nan1");
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
             }
         });
 
@@ -239,18 +247,14 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.scrollLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,ScrollActivity.class));
+                startActivity(new Intent(MainActivity.this, ScrollActivity.class));
             }
         });
         findViewById(R.id.recordVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(MainActivity.this, EventActivity.class));
-                ARouter.getInstance()
-                        .build(Router.BILIBILI_TARGET)
-                        .withInt("age", 11)
-                        .withString("name", "zhangsan")
-                        .navigation();
+                ARouter.getInstance().build(Router.BILIBILI_TARGET).withInt("age", 11).withString("name", "zhangsan").navigation();
 
 //                MyRouter.getInstance().jumpActivity(Router.BILIBILI_TARGET, null);
 //                MainClass mainClass = new MainClass();
@@ -264,8 +268,7 @@ public class MainActivity extends BaseActivity {
 //                }
             }
         });
-        LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName() + "    context：" + getApplication().hashCode()
-                + "///" + getApplicationContext().hashCode() + "///" + this.hashCode());
+        LogUtils.d(TAG, "mainActivity, current thread:" + Thread.currentThread().getName() + "    context：" + getApplication().hashCode() + "///" + getApplicationContext().hashCode() + "///" + this.hashCode());
 
 //        startActivity(new Intent(this, ContentProviderActivity.class));
 //        new Thread() {
@@ -384,6 +387,22 @@ public class MainActivity extends BaseActivity {
 //        startActivity(new Intent(this, FlowLayoutActivity.class));
 
 
+    }
+
+
+    private static Handler handler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            for (int i = 0; i < 100; i++) {
+                String[] s = new String[100000];
+            }
+            handler.sendEmptyMessageDelayed(0, 50);
+        }
+    };
+
+    private void mockdoudong() {
+        handler.sendEmptyMessage(0);
     }
 
 

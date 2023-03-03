@@ -120,6 +120,8 @@
         <activity android:name="binder.client.AidlActivity" />
         <activity android:name="webview.WebviewActivity" />
         <activity android:name=".ViewModelActivity" />
+        <activity android:name=".CodingActivity1" />
+        <activity android:name=".TestActivity" />
 
         <service android:name="binder.server.MyService"
             android:process=":remote">

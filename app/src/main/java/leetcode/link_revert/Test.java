@@ -66,7 +66,7 @@ public class Test {
 
     private static Node revertLink(Node head) {
         Node left = head;
-        Node center = head.getNext();
+        Node center = head.getNext();                 
         Node temp;
         while (center != null) {
             temp = center.getNext();

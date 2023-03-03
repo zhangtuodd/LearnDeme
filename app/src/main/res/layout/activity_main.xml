@@ -26,10 +26,10 @@
         android:text="recordVideo" />
 
     <Button
-        android:id="@+id/arraymap_put"
+        android:id="@+id/test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="arraymap_put" />
+        android:text="test" />
 
     <ui.MasterBlockView
         android:id="@+id/master_view"

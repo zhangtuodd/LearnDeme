@@ -10,6 +10,25 @@ public class insert {
         System.out.println("排后array:" + Arrays.toString(array));
     }
 
+    public static void sortt(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        int curIndex = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            int next = array[i + 1];
+            curIndex = i;
+            while (curIndex >= 0 && next < array[curIndex]) {
+                int temp = array[curIndex];
+                array[curIndex] = next;
+                next = temp;
+                curIndex = curIndex - 1;
+            }
+        }
+
+    }
+
+
     private static void sort3(int[] array) {
         if (array == null || array.length < 2) {
             return;

@@ -45,7 +45,7 @@ internal object Leet_ListNode {
 
 
         //反转全链表
-//        reverseListNode(initListNode())
+        reverseListNode(initListNode())
 //        val recursion = reverseRecursion(initListNode())//递归。。
 //        iterateListNode(recursion)
 
