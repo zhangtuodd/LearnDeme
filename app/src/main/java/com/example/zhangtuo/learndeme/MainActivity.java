@@ -175,6 +175,8 @@ public class MainActivity extends BaseActivity {
 //        startActivity(new Intent(this, AidlActivity.class));
 //        startActivity(new Intent(this, WebviewActivity.class));
 
+        new TestThreadIdScope().start();
+
         LogUtils.e("onCreate---", Thread.currentThread().getName() + "----1");
         new Thread() {
             @Override
