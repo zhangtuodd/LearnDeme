@@ -31,6 +31,13 @@
         android:layout_height="wrap_content"
         android:text="test" />
 
+    <Button
+        android:id="@+id/jumpView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Click to Expand/Collapse" />
+
     <ui.MasterBlockView
         android:id="@+id/master_view"
         android:layout_width="match_parent"

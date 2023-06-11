@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 添加您的内容视图 -->
+    <LinearLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:background="@color/bangumi_index_green_bg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="hold" />
+
+        <TextView
+            android:background="@color/bangumi_index_green_bg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="hold" />
+        <TextView
+            android:background="@color/bangumi_index_green_bg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="hold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/clickView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击"/>
+
+
+
+</LinearLayout>

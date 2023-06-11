@@ -42,6 +42,7 @@ import java.util.TimerTask;
 import javax.inject.Inject;
 
 import activity.FlowLayoutActivity;
+import activity.OpenCloseViewActivity;
 import activity.ScaleRulerActivity;
 import android_interview.activity_about.AActivity;
 import binder.client.AidlActivity;
@@ -202,6 +203,15 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
 //                map.put("nan","nan1");
                 startActivity(new Intent(MainActivity.this, TestActivity.class));
+            }
+        });
+
+        //跳转到展开折叠带手势拖动及动画的view
+        findViewById(R.id.jumpView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                map.put("nan","nan1");
+                startActivity(new Intent(MainActivity.this, OpenCloseViewActivity.class));
             }
         });
 

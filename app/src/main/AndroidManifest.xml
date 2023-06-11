@@ -122,6 +122,7 @@
         <activity android:name=".ViewModelActivity" />
         <activity android:name=".CodingActivity1" />
         <activity android:name=".TestActivity" />
+        <activity android:name="activity.OpenCloseViewActivity" />
 
         <service android:name="binder.server.MyService"
             android:process=":remote">
